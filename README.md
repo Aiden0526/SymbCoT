@@ -9,7 +9,7 @@ Authors: **Jundong Xu**<sup>1</sup>, **Hao Fei**<sup>1</sup><sup>*</sup> (Corres
 **Introduction**
 -----
 While the recent Chain-of-Thought (CoT) technique enhances the reasoning ability of large language models (LLMs) with the theory of mind, it might still struggle in handling logical reasoning that relies much on symbolic expressions and rigid deducing rules.
-To strengthen the logical reasoning capability of LLMs, we propose a novel Symbolic Chain-of-Thought, namely \textbf{SymbCoT}, a fully LLM-based framework that integrates symbolic expressions and logic rules with CoT prompting. 
+To strengthen the logical reasoning capability of LLMs, we propose a novel Symbolic Chain-of-Thought, namely **SymbCoT**, a fully LLM-based framework that integrates symbolic expressions and logic rules with CoT prompting. 
 Technically, building upon an LLM, SymbCoT 1) first translates the natural language context into the symbolic format, and then 2) derives a step-by-step plan to solve the problem with symbolic logical rules, 3) followed by a verifier to check the translation and reasoning chain.
 Via thorough evaluations on 5 standard datasets with both First-Order Logic and Constraint Optimization symbolic expressions, SymbCoT shows striking improvements over the CoT method consistently.
 
