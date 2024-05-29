@@ -1,0 +1,44 @@
+The task is to generate a plan for determining whether the statement in question is true, false or unknown。
+-----
+The definition of the three options are:
+True: If the premises can infer the question statement under first-order-logic inference rule
+False: If the premises can infer the negation of the question statement under the first-order-logic inference rule
+Unknown: If the premises cannot infer whether the question statement is true or false.
+-----
+The first-order-logic inference rules include but are not limited to: Modus Ponens, Modus Tollens, Generalization, Specialization, Conjunction, Elimination, Transitivity, Proof By Division Into Cases, Contradiction Rule, and etc.
+-----
+Given the premises, can you derive a step by step plan that can use the premises and first-order-logic inference rule to infer new knowledge if needed, in order to prove the statement? You can start with identifying the goal and break down the necessary logical inference step by step.
+-----
+Below is an example:
+Premises:
+1.NamedAfter(Cove(barutinCove), Settlement(barutin)) ∧ InBulgaria(Settlement(barutin))
+2.LocatedAt(Cove(barutinCove), Island(snowIsland))
+3.∀y(Island(y) → (y = snowIsland ∨ y = greenwichIsland ∨ y = deceptionIsland) → Includes(IslandsGroup(southShetlandIslands), y))
+4.PartOf(IslandsGroup(southShetlandIslands), Continent(antarctica))
+5. ∀x ∀y ∀z(LocatedIn(x, y) ∧ LocatedIn(y, z) → LocatedIn(x, z))
+
+Question: 
+∃x(Cove(x) ∧ LocatedIn(x, Continent(antarctica)) ∧ ∃y(NamedAfter(x, y) ∧ InBulgaria(y)))
+
+Plan: 
+To prove the question statement using the given premises, we can follow these steps:
+1.Identify the Goal: Our goal is to prove or disprove the existence of a cove (∃x(Cove(x)) that is located in Antarctica (LocatedIn(x, Continent(antarctica))) and is named after a settlement in Bulgaria (∃y(NamedAfter(x, y) ∧ InBulgaria(y))).
+2.Utilize Premise 1: Apply NamedAfter(Cove(barutinCove), Settlement(barutin)) ∧ InBulgaria(Settlement(barutin)). This premise states that Barutin Cove is named after a settlement in Bulgaria, fulfilling part of the question's requirements.
+3.Apply Premise 2: Use LocatedAt(Cove(barutinCove), Island(snowIsland)) to establish the location of Barutin Cove on Snow Island.
+4.Utilize Premise 3: Implement ∀y(Island(y) → (y = snowIsland ∨ y = greenwichIsland ∨ y = deceptionIsland) → Includes(IslandsGroup(southShetlandIslands), y)). This premise suggests that if an island is one of the specified islands (including Snow Island), it is included in the South Shetland Islands.
+5.Apply Premise 4: Use PartOf(IslandsGroup(southShetlandIslands), Continent(antarctica)) to establish that the South Shetland Islands are part of Antarctica.
+6.Implement Premise 5: Utilize ∀x ∀y ∀z(LocatedIn(x, y) ∧ LocatedIn(y, z) → LocatedIn(x, z)) for transitive location inference. This means if Barutin Cove is in Snow Island, and Snow Island is part of the South Shetland Islands, which in turn are part of Antarctica, then Barutin Cove is located in Antarctica.
+7.Combine the Steps: Integrate the information from steps 2 to 6 to show that Barutin Cove is a cove located in Antarctica and named after a settlement in Bulgaria.
+8.Conclude: If all steps align with the logic rules and premises, conclude whether the question statement is true, false, or unknown based on the outcome of the logical deductions.
+This plan should provide a clear path to test the question statement against the premises using first-order logic inference rules.
+
+-----
+Below are the premises and questions you need to derive a plan to solve, please follow the instruction and example aforementioned.
+-----
+
+Context:
+[[CONTEXT]]
+
+-----
+
+Plan: Make sure you only derive the plan. Do not solve the question and do not determine the truth value of the conclusion at the planning stage. This plan will be used to help guiding a language model to follow step-by-step. The expected final step in the plan is to determine whether the the conclusion is true/false/unknown.

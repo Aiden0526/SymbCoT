@@ -1,0 +1,89 @@
+The task is to determine whether the statement in question is true or false。
+-----
+The definition of the three options are:
+True: If the premises can infer the question statement under first-order-logic inference rule
+False: If the premises can infer the negation of the question statement under the first-order-logic inference rule
+-----
+The first-order-logic inference rules include but are not limited to: Modus Ponens, Modus Tollens, Generalization, Specialization, Conjunction, Elimination, Transitivity, Proof By Division Into Cases, Contradiction Rule, and etc.
+-----
+Given the premises, can you derive a step by step plan that can use the premises and first-order-logic inference rule to infer new knowledge if needed, in order to prove the statement? You can start with identifying the goal and break down the necessary logical inference step by step.
+-----
+Below is an example:
+Premises:
+Predicates:
+Jompus($x, bool) ::: Is x a Jompus?
+Shy($x, bool) ::: Is x shy?
+Yumpus($x, bool) ::: Is x a Yumpus?
+Aggressive($x, bool) ::: Is x aggressive?
+Dumpus($x, bool) ::: Is x a Dumpus?
+Wooden($x, bool) ::: Is x wooden?
+Wumpus($x, bool) ::: Is x a Wumpus?
+Red($x, bool) ::: Is x red?
+Impus($x, bool) ::: Is x an Impus?
+Opaque($x, bool) ::: Is x opaque?
+Tumpus($x, bool) ::: Is x a Tumpus?
+Sour($x, bool) ::: Is x sour?
+Vumpus($x, bool) ::: Is x a Vumpus?
+Earthy($x, bool) ::: Is x earthy?
+Zumpus($x, bool) ::: Is x a Zumpus?
+Small($x, bool) ::: Is x small?
+Rompus($x, bool) ::: Is x a Rompus?
+Facts:
+Yumpus(Max, True) ::: Max is a Yumpus.
+Rules:
+Jompus($x, True) >>> Shy($x, False) ::: Jompuses are not shy.
+Jompus($x, True) >>> Yumpus($x, True) ::: Jompuses are Yumpuses.
+Yumpus($x, True) >>> Aggressive($x, True) ::: Each Yumpus is aggressive.
+Yumpus($x, True) >>> Dumpus($x, True) ::: Each Yumpus is a Dumpus.
+Dumpus($x, True) >>> Wooden($x, False) ::: Dumpuses are not wooden.
+Dumpus($x, True) >>> Wumpus($x, True) ::: Dumpuses are Wumpuses.
+Wumpus($x, True) >>> Red($x, True) ::: Wumpuses are red.
+Wumpus($x, True) >>> Impus($x, True) ::: Every Wumpus is an Impus.
+Impus($x, True) >>> Opaque($x, True) ::: Each Impus is opaque.
+Impus($x, True) >>> Tumpus($x, True) ::: Impuses are Tumpuses.
+Numpus($x, True) >>> Sour($x, True) ::: Numpuses are sour.
+Tumpus($x, True) >>> Sour($x, False) ::: Tumpuses are not sour.
+Tumpus($x, True) >>> Vumpus($x, True) ::: Tumpuses are Vumpuses.
+Vumpus($x, True) >>> Earthy($x, True) ::: Vumpuses are earthy.
+Vumpus($x, True) >>> Zumpus($x, True) ::: Every Vumpus is a Zumpus.
+Zumpus($x, True) >>> Small($x, True) ::: Zumpuses are small.
+Zumpus($x, True) >>> Rompus($x, True) ::: Zumpuses are Rompuses.
+Question:
+Sour(Max, True) ::: Max is sour.
+
+
+Plan: 
+To determine whether the statement "Sour(Max, True)" is true, false, or unknown based on the given premises, we will use a systematic approach applying first-order logic inference rules. Here's the step-by-step plan:
+
+Identify the Goal: Our goal is to establish whether Max is sour (Sour(Max, True)).
+
+Utilize Facts about Max: We have Yumpus(Max, True) which states Max is a Yumpus.
+
+Apply Yumpus to Dumpus Rule: From the rule Yumpus($x, True) >>> Dumpus($x, True), we can infer Dumpus(Max, True) since Max is a Yumpus.
+
+Apply Dumpus to Wumpus Rule: From the rule Dumpus($x, True) >>> Wumpus($x, True), we can infer Wumpus(Max, True) as Max is a Dumpus.
+
+Apply Wumpus to Impus Rule: From the rule Wumpus($x, True) >>> Impus($x, True), we can infer Impus(Max, True) since Max is a Wumpus.
+
+Apply Impus to Tumpus Rule: From the rule Impus($x, True) >>> Tumpus($x, True), we can infer Tumpus(Max, True) as Max is an Impus.
+
+Evaluate Tumpus and Sour Relationship: From the rule Tumpus($x, True) >>> Sour($x, False), we can infer Sour(Max, False), as Max is a Tumpus, indicating Max is not sour.
+
+Contradiction with the Question: The conclusion Sour(Max, False) contradicts the question statement Sour(Max, True). Therefore, the question statement is false under the given premises and first-order logic inference rules.
+
+Conclude: The statement "Sour(Max, True)" is false based on the logical deductions from the premises.
+-----
+Below are the premises and questions you need to derive a plan to solve, please follow the instruction and example aforementioned.
+-----
+
+Context:
+[[CONTEXT]]
+
+Question: [[QUESTION]]
+
+Options:
+[[OPTIONS]]
+
+-----
+
+Plan:

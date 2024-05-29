@@ -1,0 +1,182 @@
+The task is a constraint optimization problem, and you need to select the most appropriate option that is true from the given options.
+The domain, variables and constraints will be given to you to solve the question.
+There will be only one answer, so choose the one you think is the most likely.
+-----
+Here is a workflow you need to follow to solve the constraint optimization problem:
+1.Domain and Variables: Identify the possible values (domain) and variables involved.
+2.Apply Constraints: Read and apply the specific constraints to the variables.
+3.List Possibilities: Enumerate all potential combinations or orders that could satisfy the constraints.
+4.Determine Order/Values: Establish the correct order or specific values for each variable as per the constraints.
+5.Demonstrate Satisfaction of Constraints: Provide a specific example that shows all constraints are met.
+6.Evaluate Queries: Analyze each query against the established order or values.
+7.Identify Correct Answer: Choose the option that aligns with the determined order/values.
+8.Present Final Answer: Clearly state the solution that satisfies the constraints and query.
+-----
+Below is an example:
+
+Domain
+The domain represents the possible values that each fruit can have based on their relative expense. In this case, there are seven fruits, so the domain will be numbers 1 through 7, where 1 is the cheapest and 7 is the most expensive.
+
+Variables
+The variables are the fruits themselves. Each fruit will have a variable associated with it, which can take a value from the domain.
+
+oranges [IN] [1, 2, 3, 4, 5, 6, 7]
+plums [IN] [1, 2, 3, 4, 5, 6, 7]
+loquats [IN] [1, 2, 3, 4, 5, 6, 7]
+apples [IN] [1, 2, 3, 4, 5, 6, 7]
+kiwis [IN] [1, 2, 3, 4, 5, 6, 7]
+cantaloupes [IN] [1, 2, 3, 4, 5, 6, 7]
+peaches [IN] [1, 2, 3, 4, 5, 6, 7]
+Constraints
+Constraints are logical rules that must be satisfied for a solution to be valid. From the given information, we can establish the following constraints:
+
+plums == 1 ::: The plums are the cheapest.
+loquats == 4 ::: The loquats are the fourth-most expensive.
+apples == 2 ::: The apples are the second-cheapest.
+loquats < kiwis ::: The loquats are less expensive than the kiwis.
+peaches < oranges ::: The peaches are less expensive than the oranges.
+kiwis < peaches ::: The kiwis are less expensive than the peaches.
+AllDifferentConstraint([oranges, plums, loquats, apples, kiwis, cantaloupes, peaches]) ::: All fruits have different values.
+Query
+The query is to determine the truth of the given options. Each option asserts a specific value for a variable:
+
+A) oranges == 6 ::: The oranges are the second-most expensive.
+B) plums == 6 ::: The plums are the second-most expensive.
+C) loquats == 6 ::: The loquats are the second-most expensive.
+D) apples == 6 ::: The apples are the second-most expensive.
+E) kiwis == 6 ::: The kiwis are the second-most expensive.
+F) cantaloupes == 6 ::: The cantaloupes are the second-most expensive.
+G) peaches == 6 ::: The peaches are the second-most expensive.
+
+Solve:
+1. **Domain and Variables**: 
+   - Domain: 1 (cheapest) to 7 (most expensive).
+   - Fruits: oranges, plums, loquats, apples, kiwis, cantaloupes, peaches.
+
+2. **Apply Constraints**: 
+   - Plums are the cheapest (1).
+   - Loquats are the fourth-most expensive (4).
+   - Apples are the second-cheapest (2).
+   - Loquats are less expensive than kiwis.
+   - Peaches are less expensive than oranges.
+   - Kiwis are less expensive than peaches.
+   - All fruits have different expense values.
+
+3. **List Possibilities**: 
+   - Plums (1), apples (2), loquats (4), then decide the order of oranges, kiwis, cantaloupes, peaches based on remaining constraints.
+
+4. **Determine Order/Values**: 
+   - A valid order could be: Plums (1), Apples (2), Cantaloupes (3), Loquats (4), Kiwis (5), Peaches (6), Oranges (7). This meets all constraints.
+
+5. **Demonstrate Satisfaction of Constraints**: 
+   - Plums (1), Loquats (4), Apples (2) are given in the constraint directly
+   - Loquats (4) < Kiwi (5). This satisfy the constraint Loquats are less expensive than kiwis
+   - Peaches (6) < Oranges (7). This satisfy the constraint Peaches are less expensive than oranges
+   - Kiwis (5) < Peaches (6). This satisfy the constraint Kiwis are less expensive than peaches
+   - All fruits have difference expense values is satisfied.
+
+6. **Evaluate Queries**: 
+   - A) oranges == 6: False, oranges are 7.
+   - B) plums == 6: False, plums are 1.
+   - C) loquats == 6: False, loquats are 4.
+   - D) apples == 6: False, apples are 2.
+   - E) kiwis == 6: False, kiwis are 5.
+   - F) cantaloupes == 6: False, cantaloupes are 3.
+   - G) peaches == 6: True, peaches are 6.
+
+7. **Identify Correct Answer**: 
+   - The correct answer is G, as peaches are the second-most expensive (6) in the established order.
+
+8. **Present Final Answer**:
+   - Final Answer: {G}
+-----
+Below is an example:
+
+Domain:
+1: leftmost
+7: rightmost
+
+Variables:
+hawk [IN] [1, 2, 3, 4, 5, 6, 7]
+crow [IN] [1, 2, 3, 4, 5, 6, 7]
+owl [IN] [1, 2, 3, 4, 5, 6, 7]
+raven [IN] [1, 2, 3, 4, 5, 6, 7]
+falcon [IN] [1, 2, 3, 4, 5, 6, 7]
+quail [IN] [1, 2, 3, 4, 5, 6, 7]
+hummingbird [IN] [1, 2, 3, 4, 5, 6, 7]
+
+Constraints:
+hummingbird == 2 ::: The hummingbird is the second from the left.
+raven == 4 ::: The raven is the fourth from the left.
+raven > hawk ::: The raven is to the right of the hawk.
+owl > crow ::: The owl is to the right of the crow.
+falcon == 7 ::: The falcon is the rightmost.
+hawk > hummingbird ::: The hawk is to the right of the hummingbird.
+quail == 6 ::: The quail is the second from the right.
+AllDifferentConstraint([hawk, crow, owl, raven, falcon, quail, hummingbird]) ::: All birds have different positions.
+
+Query:
+A) hawk == 6 ::: The hawk is the second from the right.
+B) crow == 6 ::: The crow is the second from the right.
+C) owl == 6 ::: The owl is the second from the right.
+D) raven == 6 ::: The raven is the second from the right.
+E) falcon == 6 ::: The falcon is the second from the right.
+F) quail == 6 ::: The quail is the second from the right.
+G) hummingbird == 6 ::: The hummingbird is the second from the right.
+
+Solve:
+Let's solve the given constraint optimization problem using the provided workflow:
+
+1. **Domain and Variables**: 
+   - Domain: 1 (leftmost) to 7 (rightmost).
+   - Birds: hawk, crow, owl, raven, falcon, quail, hummingbird.
+
+2. **Apply Constraints**: 
+   - Hummingbird is the second from the left (2).
+   - Raven is the fourth from the left (4).
+   - Raven is to the right of hawk (raven > hawk).
+   - Owl is to the right of crow (owl > crow).
+   - Falcon is the rightmost (7).
+   - Hawk is to the right of hummingbird (hawk > hummingbird).
+   - Quail is the second from the right (6).
+   - All birds have different positions.
+
+3. **List Possibilities**: 
+   - Fixed positions: Hummingbird (2), Raven (4), Quail (6), Falcon (7).
+   - Remaining birds: hawk, crow, owl.
+   - Hawk must be to the right of hummingbird but to the left of raven.
+
+4. **Determine Order/Values**: 
+   - A valid order could be: Crow (1), Hummingbird (2), Hawk (3), Raven (4), Owl (5), Quail (6), Falcon (7). This meets all constraints.
+
+5. **Demonstrate Satisfaction of Constraints**: 
+   - Hummingbird (2), Raven (4), Quail (6), Falcon (7) are given in the constraint directly.
+   - Raven (4) > Hawk (3). This satisfy the constraint Raven is to the right of the hawk.
+   - Owl (5) > Crow (1). This satisfy the constraint Owl is to the right of the crow.
+   - Hawk (3) > Hummingbird (2). This satisfy the constraint Hawk is to the right of the hummingbird.
+   - All birds have different positions is satisfied.
+
+6. **Evaluate Queries**: 
+   - A) hawk == 6: False, hawk is 3.
+   - B) crow == 6: False, crow is 1.
+   - C) owl == 6: False, owl is 5.
+   - D) raven == 6: False, raven is 4.
+   - E) falcon == 6: False, falcon is 7.
+   - F) quail == 6: True, quail is 6.
+   - G) hummingbird == 6: False, hummingbird is 2.
+
+7. **Identify Correct Answer**: 
+   - The correct answer is F, as quail is the second from the right (6) in the established order.
+
+8. **Present Final Answer**:
+   - Final Answer: {F}
+-----
+Below is the one you need to solve:
+
+Context:
+[[CONTEXT]]
+
+Solve:
+-----
+Solve: Please follow the workflow and examples to solve the constraint optimization problem. Please clearly indicate the final answer in a curly bracket {} at the end. 
+There will be exactly only ONE answer!!! Please only select the most likely one. DO NOT given more/less than one answer.

@@ -1,0 +1,123 @@
+The task is to generate a plan for determining whether the statement in question is true, false or unknown。
+-----
+The definition of the three options are:
+True: If the premises can infer the question statement under first-order-logic inference rule
+False: If the premises can infer the negation of the question statement under the first-order-logic inference rule
+Unknown: If the premises cannot infer whether the question statement is true or false.
+-----
+Given the premises, can you derive a step by step plan that can use the constraint optimization inference rule to infer new knowledge if needed, in order to prove the statement? You can start with identifying the goal and break down the necessary logical inference step by step.
+-----
+Below is an example:
+Context:
+### Domain
+
+- Positions: 1 (first performer) to 5 (last performer)
+
+### Variables
+
+- Fernando_position [IN] [1, 2, 3, 4, 5]
+- Ginny_position [IN] [1, 2, 3, 4, 5]
+- Hakim_position [IN] [1, 2, 3, 4, 5]
+- Juanita_position [IN] [1, 2, 3, 4, 5]
+- Kevin_position [IN] [1, 2, 3, 4, 5]
+
+### Constraints
+
+1. **Ginny Before Fernando**: 
+   - Ginny_position < Fernando_position
+   
+2. **Kevin Before Hakim and Juanita**: 
+   - Kevin_position < Hakim_position
+   - Kevin_position < Juanita_position
+   
+3. **Hakim Either Immediately Before or After Fernando**:
+   - |Hakim_position - Fernando_position| = 1
+
+4. **Unique Performance Slots**:
+   - Each student (Fernando, Ginny, Hakim, Juanita, and Kevin) is assigned a unique position [1, 2, 3, 4, 5] for their performance. This ensures that no two performances overlap in timing, as each position corresponds to a distinct, non-overlapping time slot during the recital.
+
+### Queries for Options
+Which one of the following could be the order, from first to last, in which the students perform?
+
+- **A) Ginny, Fernando, Hakim, Kevin, Juanita**
+  - Ginny_position = 1, Fernando_position = 2, Hakim_position = 3, Kevin_position = 4, Juanita_position = 5
+  
+- **B) Ginny, Juanita, Kevin, Hakim, Fernando**
+  - Ginny_position = 1, Juanita_position = 2, Kevin_position = 3, Hakim_position = 4, Fernando_position = 5
+  
+- **C) Ginny, Kevin, Hakim, Juanita, Fernando**
+  - Ginny_position = 1, Kevin_position = 2, Hakim_position = 3, Juanita_position = 4, Fernando_position = 5
+  
+- **D) Kevin, Ginny, Juanita, Fernando, Hakim**
+  - Kevin_position = 1, Ginny_position = 2, Juanita_position = 3, Fernando_position = 4, Hakim_position = 5
+  
+- **E) Kevin, Juanita, Fernando, Hakim, Ginny**
+  - Kevin_position = 1, Juanita_position = 2, Fernando_position = 3, Hakim_position = 4, Ginny_position = 5
+
+
+Plan:
+### Plan for Determining the Truth of the Queries
+
+1. **Identify the Goal:**
+   - Determine whether each given query (A-G) is true, false, or unknown based on the provided constraints.
+
+2. **Define the Domain and Variables:**
+   - **Domain:** The values range from 1 (cheapest) to 7 (most expensive).
+   - **Variables:** The fruits - oranges, plums, loquats, apples, kiwis, cantaloupes, peaches.
+
+3. **List the Constraints:**
+   - plums == 1 ::: The plums are the cheapest.
+   - loquats == 4 ::: The loquats are the fourth-most expensive.
+   - apples == 2 ::: The apples are the second-cheapest.
+   - loquats < kiwis ::: The loquats are less expensive than the kiwis.
+   - peaches < oranges ::: The peaches are less expensive than the oranges.
+   - kiwis < peaches ::: The kiwis are less expensive than the peaches.
+   - AllDifferentConstraint([oranges, plums, loquats, apples, kiwis, cantaloupes, peaches]) ::: All fruits have different values.
+
+4. **Initial Analysis:**
+   - Assign the fixed values based on direct constraints:
+     - plums = 1
+     - loquats = 4
+     - apples = 2
+
+5. **Apply Constraint Optimization:**
+   - Identify possible values for the remaining fruits: oranges, kiwis, cantaloupes, peaches.
+   - Consider the order dictated by constraints:
+     - loquats < kiwis
+     - peaches < oranges
+     - kiwis < peaches
+
+6. **Generate Potential Scenarios:**
+   - Assign the remaining values considering the constraints and all different values rule.
+   - Evaluate possible combinations that satisfy all constraints.
+
+7. **Logical Inference:**
+   - Derive logical inferences from the constraints and the initial analysis.
+   - Check the remaining fruits' values against the constraints:
+     - Since plums (1), apples (2), and loquats (4) are fixed, find consistent values for oranges, kiwis, cantaloupes, peaches.
+
+8. **Check for Contradictions:**
+   - Ensure all constraints are satisfied without contradictions in the assignments.
+
+9. **Evaluate Results:**
+   - Based on the valid assignments, determine the value of each fruit.
+   - Validate each query against the determined values.
+
+10. **Determine the Conclusion:**
+    - Query A: oranges == 6
+    - Query B: plums == 6
+    - Query C: loquats == 6
+    - Query D: apples == 6
+    - Query E: kiwis == 6
+    - Query F: cantaloupes == 6
+    - Query G: peaches == 6
+
+-----
+Below are the premises and questions you need to derive a plan to solve, please follow the instruction and example aforementioned.
+-----
+
+Context:
+[[CONTEXT]]
+
+-----
+Plan: Make sure you only derive the plan. Do not solve the question and do not determine the truth value of the conclusion at the planning stage. This plan will be used to help guiding a language model to follow step-by-step. The expected final step in the plan is to determine whether the the conclusion is true/false/unknown.

@@ -1,0 +1,110 @@
+Task Description: You are given a problem description and a question. The task is to: 
+1) define all the predicates in the problem
+2) parse the problem into logic rules based on the defined predicates
+3) write all the facts mentioned in the problem
+4) parse the question into the logic form
+------
+Here is an example:
+Problem:
+Each jompus is fruity. Every jompus is a wumpus. Every wumpus is not transparent. Wumpuses are tumpuses. Tumpuses are mean. Tumpuses are vumpuses. Every vumpus is cold. Each vumpus is a yumpus. Yumpuses are orange. Yumpuses are numpuses. Numpuses are dull. Each numpus is a dumpus. Every dumpus is not shy. Impuses are shy. Dumpuses are rompuses. Each rompus is liquid. Rompuses are zumpuses. Alex is a tumpus.
+Question:
+True or false: Alex is not shy.
+###
+Predicates:
+Jompus($x, bool) ::: Does x belong to Jompus?
+Fruity($x, bool) ::: Is x fruity?
+Wumpus($x, bool) ::: Does x belong to Wumpus?
+Transparent($x, bool) ::: Is x transparent?
+Tumpuses($x, bool) ::: Does x belong to Tumpuses?
+Mean($x, bool) ::: Is x mean?
+Vumpuses($x, bool) ::: Does x belong to Vumpuses?
+Cold($x, bool) ::: Is x cold?
+Yumpus($x, bool) ::: Does x belong to Yumpus?
+Orange($x, bool) ::: Is x orange?
+Numpus($x, bool) ::: Does x belong to Numpus?
+Dull($x, bool) ::: Is x dull?
+Dumpus($x, bool) ::: Does x belong to Dumpus?
+Shy($x, bool) ::: Is x shy?
+Impuses($x, bool) ::: Does x belong to Impuses?
+Rompus($x, bool) ::: Does x belong to Rompus?
+Liquid($x, bool) ::: Is x liquid?
+Zumpus($x, bool) ::: Does x belong to Zumpus?
+Facts:
+Tumpuses(Alex, True)
+Rules:
+Jompus($x, True) >>> Fruity($x, True) ::: Each jompus is fruity.
+Jompus($x, True) >>> Wumpus($x, True) ::: Every jompus is a wumpus.
+Wumpus($x, True) >>> Transparent($x, False) ::: Every wumpus is not transparent.
+Wumpuses($x, True) >>> Tumpuses($x, True) ::: Wumpuses are tumpuses.
+Tumpuses($x, True) >>> Mean($x, True) ::: Tumpuses are mean. 
+Tumpuses($x, True) >>> Vumpuses($x, True) ::: Tumpuses are vumpuses. 
+Vumpuses($x, True) >>> Cold($x, True) ::: Every vumpus is cold. 
+Vumpuses($x, True) >>> Yumpus($x, True) ::: Each vumpus is a yumpus. 
+Yumpus($x, True) >>> Orange($x, True) ::: Yumpuses are orange. 
+Yumpus($x, True) >>> Numpus($x, True) ::: Yumpuses are numpuses. 
+Numpus($x, True) >>> Dull($x, True) ::: Numpuses are dull. 
+Numpus($x, True) >>> Dumpus($x, True) ::: Each numpus is a dumpus. 
+Dumpus($x, True) >>> Shy($x, False) ::: Every dumpus is not shy. 
+Impuses($x, True) >>> Shy($x, True) ::: Impuses are shy. 
+Dumpus($x, True) >>> Rompus($x, True) ::: Dumpuses are rompuses. 
+Rompus($x, True) >>> Liquid($x, True) ::: Each rompus is liquid. 
+Rompus($x, True) >>> Zumpus($x, True) ::: Rompuses are zumpuses. 
+Query:
+Shy(Alex, False) ::: Alex is not shy
+------
+Here is an example:
+Problem:
+Jompuses are not shy. Jompuses are yumpuses. Each yumpus is aggressive.Each yumpus is a dumpus. Dumpuses are not wooden. Dumpuses are wumpuses. Wumpuses are red. Every wumpus is an impus. Each impus is opaque.Impuses are tumpuses. Numpuses are sour. Tumpuses are not sour. Tumpuses are vumpuses. Vumpuses are earthy. Every vumpus is a zumpus. Zumpuses are small. Zumpuses are rompuses. Max is a yumpus.
+
+Question:
+Max is sour.
+###
+Predicates:
+Jompus($x, bool) ::: Is x a Jompus?
+Shy($x, bool) ::: Is x shy?
+Yumpus($x, bool) ::: Is x a Yumpus?
+Aggressive($x, bool) ::: Is x aggressive?
+Dumpus($x, bool) ::: Is x a Dumpus?
+Wooden($x, bool) ::: Is x wooden?
+Wumpus($x, bool) ::: Is x a Wumpus?
+Red($x, bool) ::: Is x red?
+Impus($x, bool) ::: Is x an Impus?
+Opaque($x, bool) ::: Is x opaque?
+Tumpus($x, bool) ::: Is x a Tumpus?
+Sour($x, bool) ::: Is x sour?
+Vumpus($x, bool) ::: Is x a Vumpus?
+Earthy($x, bool) ::: Is x earthy?
+Zumpus($x, bool) ::: Is x a Zumpus?
+Small($x, bool) ::: Is x small?
+Rompus($x, bool) ::: Is x a Rompus?
+Facts:
+Yumpus(Max, True) ::: Max is a Yumpus.
+Rules:
+Jompus($x, True) >>> Shy($x, False) ::: Jompuses are not shy.
+Jompus($x, True) >>> Yumpus($x, True) ::: Jompuses are Yumpuses.
+Yumpus($x, True) >>> Aggressive($x, True) ::: Each Yumpus is aggressive.
+Yumpus($x, True) >>> Dumpus($x, True) ::: Each Yumpus is a Dumpus.
+Dumpus($x, True) >>> Wooden($x, False) ::: Dumpuses are not wooden.
+Dumpus($x, True) >>> Wumpus($x, True) ::: Dumpuses are Wumpuses.
+Wumpus($x, True) >>> Red($x, True) ::: Wumpuses are red.
+Wumpus($x, True) >>> Impus($x, True) ::: Every Wumpus is an Impus.
+Impus($x, True) >>> Opaque($x, True) ::: Each Impus is opaque.
+Impus($x, True) >>> Tumpus($x, True) ::: Impuses are Tumpuses.
+Numpus($x, True) >>> Sour($x, True) ::: Numpuses are sour.
+Tumpus($x, True) >>> Sour($x, False) ::: Tumpuses are not sour.
+Tumpus($x, True) >>> Vumpus($x, True) ::: Tumpuses are Vumpuses.
+Vumpus($x, True) >>> Earthy($x, True) ::: Vumpuses are earthy.
+Vumpus($x, True) >>> Zumpus($x, True) ::: Every Vumpus is a Zumpus.
+Zumpus($x, True) >>> Small($x, True) ::: Zumpuses are small.
+Zumpus($x, True) >>> Rompus($x, True) ::: Zumpuses are Rompuses.
+Query:
+Sour(Max, True) ::: Max is sour.
+
+-----
+Below is the one you need to translate:
+Problem:
+[[CONTEXT]]
+
+Question:
+[[QUESTION]]
+###

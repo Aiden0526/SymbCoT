@@ -1,0 +1,124 @@
+The task is to generate a plan for determining whether the statement in question is true, false or unknown。
+-----
+The definition of the three options are:
+True: If the premises can infer the question statement under first-order-logic inference rule
+False: If the premises can infer the negation of the question statement under the first-order-logic inference rule
+Unknown: If the premises cannot infer whether the question statement is true or false.
+-----
+Given the premises, can you derive a step by step plan that can use the constraint optimization inference rule to infer new knowledge if needed, in order to prove the statement? You can start with identifying the goal and break down the necessary logical inference step by step.
+-----
+Below is an example:
+### Domain
+
+- Positions: 1 (first performer) to 5 (last performer)
+
+### Variables
+
+- Fernando_position [IN] [1, 2, 3, 4, 5]
+- Ginny_position [IN] [1, 2, 3, 4, 5]
+- Hakim_position [IN] [1, 2, 3, 4, 5]
+- Juanita_position [IN] [1, 2, 3, 4, 5]
+- Kevin_position [IN] [1, 2, 3, 4, 5]
+
+### Constraints
+
+1. **Ginny Before Fernando**: 
+   - Ginny_position < Fernando_position
+   
+2. **Kevin Before Hakim and Juanita**: 
+   - Kevin_position < Hakim_position
+   - Kevin_position < Juanita_position
+   
+3. **Hakim Either Immediately Before or After Fernando**:
+   - |Hakim_position - Fernando_position| = 1
+
+4. **Unique Performance Slots**:
+   - Each student (Fernando, Ginny, Hakim, Juanita, and Kevin) is assigned a unique position [1, 2, 3, 4, 5] for their performance. This ensures that no two performances overlap in timing, as each position corresponds to a distinct, non-overlapping time slot during the recital.
+
+### Queries for Options
+Which one of the following could be the order, from first to last, in which the students perform?
+
+- **A) Ginny, Fernando, Hakim, Kevin, Juanita**
+  - Ginny_position = 1, Fernando_position = 2, Hakim_position = 3, Kevin_position = 4, Juanita_position = 5
+  
+- **B) Ginny, Juanita, Kevin, Hakim, Fernando**
+  - Ginny_position = 1, Juanita_position = 2, Kevin_position = 3, Hakim_position = 4, Fernando_position = 5
+  
+- **C) Ginny, Kevin, Hakim, Juanita, Fernando**
+  - Ginny_position = 1, Kevin_position = 2, Hakim_position = 3, Juanita_position = 4, Fernando_position = 5
+  
+- **D) Kevin, Ginny, Juanita, Fernando, Hakim**
+  - Kevin_position = 1, Ginny_position = 2, Juanita_position = 3, Fernando_position = 4, Hakim_position = 5
+  
+- **E) Kevin, Juanita, Fernando, Hakim, Ginny**
+  - Kevin_position = 1, Juanita_position = 2, Fernando_position = 3, Hakim_position = 4, Ginny_position = 5
+
+Plan:
+### Plan to Determine the Truth Value of the Given Order Options
+
+**Goal:** Determine whether the provided orders for the students' performances are True, False, or Unknown based on the given premises and constraints.
+
+**Step-by-Step Plan:**
+
+1. **Identify the Goal:**
+   - Verify if any of the provided orders (A, B, C, D, E) from first to last are consistent with the given constraints.
+
+2. **List the Constraints:**
+   - **Ginny Before Fernando:** 
+     - \( Ginny\_position < Fernando\_position \)
+   - **Kevin Before Hakim and Juanita:** 
+     - \( Kevin\_position < Hakim\_position \)
+     - \( Kevin\_position < Juanita\_position \)
+   - **Hakim Either Immediately Before or After Fernando:**
+     - \( |Hakim\_position - Fernando\_position| = 1 \)
+   - **Unique Performance Slots:**
+     - Each position from 1 to 5 must be uniquely assigned to a different student.
+
+3. **Evaluate Each Option:**
+   - For each order (A, B, C, D, E), assign the respective positions to the students.
+
+4. **Check Constraints for Each Option:**
+   - **Option A: Ginny, Fernando, Hakim, Kevin, Juanita**
+     - Assign positions: \( Ginny\_position = 1 \), \( Fernando\_position = 2 \), \( Hakim\_position = 3 \), \( Kevin\_position = 4 \), \( Juanita\_position = 5 \)
+     - Check each constraint against these positions.
+   
+   - **Option B: Ginny, Juanita, Kevin, Hakim, Fernando**
+     - Assign positions: \( Ginny\_position = 1 \), \( Juanita\_position = 2 \), \( Kevin\_position = 3 \), \( Hakim\_position = 4 \), \( Fernando\_position = 5 \)
+     - Check each constraint against these positions.
+   
+   - **Option C: Ginny, Kevin, Hakim, Juanita, Fernando**
+     - Assign positions: \( Ginny\_position = 1 \), \( Kevin\_position = 2 \), \( Hakim\_position = 3 \), \( Juanita\_position = 4 \), \( Fernando\_position = 5 \)
+     - Check each constraint against these positions.
+   
+   - **Option D: Kevin, Ginny, Juanita, Fernando, Hakim**
+     - Assign positions: \( Kevin\_position = 1 \), \( Ginny\_position = 2 \), \( Juanita\_position = 3 \), \( Fernando\_position = 4 \), \( Hakim\_position = 5 \)
+     - Check each constraint against these positions.
+   
+   - **Option E: Kevin, Juanita, Fernando, Hakim, Ginny**
+     - Assign positions: \( Kevin\_position = 1 \), \( Juanita\_position = 2 \), \( Fernando\_position = 3 \), \( Hakim\_position = 4 \), \( Ginny\_position = 5 \)
+     - Check each constraint against these positions.
+
+5. **Infer New Knowledge (if needed):**
+   - If an option does not immediately meet the constraints, infer any additional logical positions that might fit the constraints better.
+   - Utilize constraint optimization techniques to adjust positions and recheck the constraints.
+
+6. **Determine Consistency:**
+   - For each option, determine if all constraints are satisfied:
+     - If all constraints are satisfied, label the option as **True**.
+     - If the constraints infer the negation of the order (i.e., an inconsistency), label the option as **False**.
+     - If it is unclear whether the constraints can determine the truth value of the order, label the option as **Unknown**.
+
+7. **Summarize Findings:**
+   - Summarize the truth value (True, False, Unknown) for each option based on the evaluations and logical inferences.
+
+**Final Step:**
+   - Determine and state whether each provided order (A, B, C, D, E) is True, False, or Unknown based on the consistency check with the given constraints.
+-----
+Below are the premises and questions you need to derive a plan to solve, please follow the instruction and example aforementioned.
+-----
+
+Context:
+[[CONTEXT]]
+
+-----
+Plan: Make sure you only derive the plan. Do not solve the question and do not determine the truth value of the conclusion at the planning stage. This plan will be used to help guiding a language model to follow step-by-step. The expected final step in the plan is to determine whether the the conclusion is true/false/unknown.

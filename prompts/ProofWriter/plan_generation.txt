@@ -1,0 +1,91 @@
+The task is to determine whether the statement in question is true, false or unknown。
+-----
+The definition of the three options are:
+True: If the premises can infer the question statement under first-order-logic inference rule
+False: If the premises can infer the negation of the question statement under the first-order-logic inference rule
+Unknown: If the premises cannot infer whether the question statement is true or false.
+-----
+The first-order-logic inference rules include but are not limited to: Modus Ponens, Modus Tollens, Generalization, Specialization, Conjunction, Elimination, Transitivity, Proof By Division Into Cases, Contradiction Rule, and etc.
+-----
+Given the premises, can you derive a step by step plan that can use the premises and first-order-logic inference rule to infer new knowledge if needed, in order to prove the statement? You can start with identifying the goal and break down the necessary logical inference step by step.
+-----
+Below is an example:
+Predicates:
+Furry($x, bool) ::: Is x furry?
+Smart($x, bool) ::: Is x smart?
+Kind($x, bool) ::: Is x kind?
+Nice($x, bool) ::: Is x nice?
+Big($x, bool) ::: Is x big?
+Green($x, bool) ::: Is x green?
+Young($x, bool) ::: Is x young?
+
+Facts:
+Furry(Anne, True) ::: Anne is furry.
+Smart(Anne, True) ::: Anne is smart.
+Kind(Bob, True) ::: Bob is kind.
+Nice(Bob, True) ::: Bob is nice.
+Big(Charlie, True) ::: Charlie is big.
+Green(Charlie, True) ::: Charlie is green.
+Nice(Charlie, True) ::: Charlie is nice.
+Young(Charlie, True) ::: Charlie is young.
+Furry(Gary, True) ::: Gary is furry.
+Kind(Gary, True) ::: Gary is kind.
+Nice(Gary, True) ::: Gary is nice.
+Young(Gary, True) ::: Gary is young.
+Nice($x, True) >>> Kind($x, True) ::: All nice things are kind.
+Smart($x, True) >>> Nice($x, True) ::: Smart things are nice.
+Smart($x, True) && Kind($x, True) >>> Green($x, True) ::: All smart, kind things are green.
+Young($x, True) && Big($x, True) >>> Kind($x, True) ::: Young, big things are kind.
+Kind($x, True) && Smart($x, True) >>> Furry($x, True) ::: Kind, smart things are furry.
+Nice($x, True) && Big($x, True) >>> Young($x, True) ::: If something is nice and big then it is young.
+Green($x, True) >>> Big($x, True) ::: If something is green then it is big.
+Young($x, True) && Big($x, True) >>> Nice($x, True) ::: If Anne is young and Anne is big then Anne is nice.
+
+Question:
+Big(Bob, False) ::: Bob is not big.
+
+Plan: 
+Certainly, here is a plan to determine the truth value of the statement "Big(Bob, False)" without providing the actual conclusion:
+
+Plan:
+
+1. Identify the Goal: The goal is to establish the truth value of "Big(Bob, False)," meaning we need to determine if Bob is not big.
+
+2. Define the Relevant Rules and Predicates:
+   - Young($x, bool) ::: Is x young?
+   - Big($x, bool) ::: Is x big?
+   - Green($x, bool) ::: Is x green?
+   - Kind($x, bool) ::: Is x kind?
+   - Smart($x, bool) ::: Is x smart?
+   - Nice($x, bool) ::: Is x nice?
+
+3. Review the Given Facts:
+   - Kind(Bob, True) ::: Bob is kind.
+   - Nice(Bob, True) ::: Bob is nice.
+
+4. Analyze the Rules:
+   - Young($x, True) && Big($x, True) >>> Nice($x, True) ::: If someone is young and big, then they are nice.
+   - Green($x, True) >>> Big($x, True) ::: If something is green, then it is big.
+   - Smart($x, True) >>> Nice($x, True) ::: Smart things are nice.
+   - Smart($x, True) && Kind($x, True) >>> Green($x, True) ::: All smart, kind things are green.
+
+5. Apply the Rules to the Given Facts:
+   - Use the rules to derive intermediate conclusions based on the given facts and predicates.
+
+6. Determine if the Statement Can Be Inferred:
+   - Use the intermediate conclusions to assess whether we can infer the statement "Big(Bob, False)" based on the provided information.
+
+7. Conclude the Plan:
+   - Provide a summary of whether the statement can be determined as true, false, or remains unknown based on the logic applied to the premises.
+
+This plan outlines the steps to follow in order to assess the truth value of "Big(Bob, False)" based on the given premises and first-order logic inference rules.
+-----
+Below are the premises and questions you need to derive a plan to solve, please follow the instruction and example aforementioned.
+-----
+
+Context:
+[[CONTEXT]]
+
+-----
+
+Plan: Make sure you only derive the plan. Do not solve the question and do not determine the truth value of the conclusion at the planning stage. This plan will be used to help guiding a language model to follow step-by-step. The expected final step in the plan is to determine whether the the conclusion is true/false/unknown.

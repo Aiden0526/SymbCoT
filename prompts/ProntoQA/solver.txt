@@ -1,0 +1,192 @@
+Based on the premises, question and plan, can you execute each step by selecting relevant premises and make inference based on first-order-logic inference rules to solve the question? Make sure you follow the plan.
+-----
+The first-order-logic inference rules include but are not limited to: Modus Ponens, Modus Tollens, Generalization, Specialization, Conjunction, Elimination, Transitivity, Proof By Division Into Cases, Contradiction Rule, and etc.
+-----
+Please execute the plan step by step. During each step, please indicate what first-order logic inference rules you used. Besides, show the inference process by the logical operators including but not limited to: ⊕ (either or), ∨ (disjunction), ∧ (conjunction), → (implication), ∀ (universal), ∃ (existential), ¬ (negation), ↔ (equivalence). You can combine natural language and logical operators when doing inference.
+Please also highlight the final answer as "Final answer: {true/false}"
+The final answer must be either true or false
+Please clearly indicate whether the question is true or false using {true/false}!!!
+-----
+Below is an example:
+Premises:
+Predicates:
+Jompus($x, bool) ::: Is x a Jompus?
+Shy($x, bool) ::: Is x shy?
+Yumpus($x, bool) ::: Is x a Yumpus?
+Aggressive($x, bool) ::: Is x aggressive?
+Dumpus($x, bool) ::: Is x a Dumpus?
+Wooden($x, bool) ::: Is x wooden?
+Wumpus($x, bool) ::: Is x a Wumpus?
+Red($x, bool) ::: Is x red?
+Impus($x, bool) ::: Is x an Impus?
+Opaque($x, bool) ::: Is x opaque?
+Tumpus($x, bool) ::: Is x a Tumpus?
+Sour($x, bool) ::: Is x sour?
+Vumpus($x, bool) ::: Is x a Vumpus?
+Earthy($x, bool) ::: Is x earthy?
+Zumpus($x, bool) ::: Is x a Zumpus?
+Small($x, bool) ::: Is x small?
+Rompus($x, bool) ::: Is x a Rompus?
+Facts:
+Yumpus(Max, True) ::: Max is a Yumpus.
+Rules:
+Jompus($x, True) >>> Shy($x, False) ::: Jompuses are not shy.
+Jompus($x, True) >>> Yumpus($x, True) ::: Jompuses are Yumpuses.
+Yumpus($x, True) >>> Aggressive($x, True) ::: Each Yumpus is aggressive.
+Yumpus($x, True) >>> Dumpus($x, True) ::: Each Yumpus is a Dumpus.
+Dumpus($x, True) >>> Wooden($x, False) ::: Dumpuses are not wooden.
+Dumpus($x, True) >>> Wumpus($x, True) ::: Dumpuses are Wumpuses.
+Wumpus($x, True) >>> Red($x, True) ::: Wumpuses are red.
+Wumpus($x, True) >>> Impus($x, True) ::: Every Wumpus is an Impus.
+Impus($x, True) >>> Opaque($x, True) ::: Each Impus is opaque.
+Impus($x, True) >>> Tumpus($x, True) ::: Impuses are Tumpuses.
+Numpus($x, True) >>> Sour($x, True) ::: Numpuses are sour.
+Tumpus($x, True) >>> Sour($x, False) ::: Tumpuses are not sour.
+Tumpus($x, True) >>> Vumpus($x, True) ::: Tumpuses are Vumpuses.
+Vumpus($x, True) >>> Earthy($x, True) ::: Vumpuses are earthy.
+Vumpus($x, True) >>> Zumpus($x, True) ::: Every Vumpus is a Zumpus.
+Zumpus($x, True) >>> Small($x, True) ::: Zumpuses are small.
+Zumpus($x, True) >>> Rompus($x, True) ::: Zumpuses are Rompuses.
+Question:
+Sour(Max, True) ::: Max is sour.
+
+Execution:
+Let's execute the plan step by step, applying first-order logic inference rules and logical operators to determine the truth value of the statement "Sour(Max, True)".
+
+Identify the Goal
+
+Goal: Establish whether Max is sour (Sour(Max, True)).
+Utilize Facts about Max
+
+Fact: Yumpus(Max, True).
+Inference Rule: Given Fact
+Logical Process: Max is a Yumpus.
+Apply Yumpus to Dumpus Rule
+
+Rule: Yumpus($x, True) >>> Dumpus($x, True).
+Inference Rule: Modus Ponens
+Logical Process: Since Max is a Yumpus, by Modus Ponens, Max is a Dumpus (Dumpus(Max, True)).
+Apply Dumpus to Wumpus Rule
+
+Rule: Dumpus($x, True) >>> Wumpus($x, True).
+Inference Rule: Modus Ponens
+Logical Process: Since Max is a Dumpus, by Modus Ponens, Max is a Wumpus (Wumpus(Max, True)).
+Apply Wumpus to Impus Rule
+
+Rule: Wumpus($x, True) >>> Impus($x, True).
+Inference Rule: Modus Ponens
+Logical Process: Since Max is a Wumpus, by Modus Ponens, Max is an Impus (Impus(Max, True)).
+Apply Impus to Tumpus Rule
+
+Rule: Impus($x, True) >>> Tumpus($x, True).
+Inference Rule: Modus Ponens
+Logical Process: Since Max is an Impus, by Modus Ponens, Max is a Tumpus (Tumpus(Max, True)).
+Evaluate Tumpus and Sour Relationship
+
+Rule: Tumpus($x, True) >>> Sour($x, False).
+Inference Rule: Modus Ponens
+Logical Process: Since Max is a Tumpus, by Modus Ponens, Max is not sour (Sour(Max, False)).
+Contradiction with the Question
+
+Logical Process: The conclusion Sour(Max, False) contradicts the question statement Sour(Max, True).
+Conclude
+
+Conclusion: Based on the logical deductions from the premises and rules, the statement "Sour(Max, True)" is false.
+Final answer: {false}
+-----
+Below is an example:
+Predicates:
+Vumpus($x, bool) ::: Is x a Vumpus?
+Floral($x, bool) ::: Is x floral?
+Tumpus($x, bool) ::: Is x a Tumpus?
+Brown($x, bool) ::: Is x brown?
+Wumpus($x, bool) ::: Is x a Wumpus?
+Small($x, bool) ::: Is x small?
+Rompus($x, bool) ::: Is x a Rompus?
+Zumpus($x, bool) ::: Is x a Zumpus?
+Metallic($x, bool) ::: Is x metallic?
+Happy($x, bool) ::: Is x happy?
+Impus($x, bool) ::: Is x an Impus?
+Amenable($x, bool) ::: Is x amenable?
+Dumpus($x, bool) ::: Is x a Dumpus?
+Numpus($x, bool) ::: Is x a Numpus?
+Bitter($x, bool) ::: Is x bitter?
+Jompus($x, bool) ::: Is x a Jompus?
+Cold($x, bool) ::: Is x cold?
+Yumpus($x, bool) ::: Is x a Yumpus?
+
+Facts:
+Tumpus(Wren, True) ::: Wren is a Tumpus.
+
+Rules:
+Vumpus($x, True) >>> Floral($x, True) ::: Vumpuses are floral.
+Vumpus($x, True) >>> Tumpus($x, True) ::: Vumpuses are Tumpuses.
+Tumpus($x, True) >>> Brown($x, True) ::: Tumpuses are brown.
+Tumpus($x, True) >>> Wumpus($x, True) ::: Each Tumpus is a Wumpus.
+Wumpus($x, True) >>> Small($x, True) ::: Wumpuses are small.
+Wumpus($x, True) >>> Rompus($x, True) ::: Each Wumpus is a Rompus.
+Zumpus($x, True) >>> Metallic($x, True) ::: Each Zumpus is metallic.
+Rompus($x, True) >>> Happy($x, True) ::: Every Rompus is happy.
+Rompus($x, True) >>> Impus($x, True) ::: Rompuses are Impuses.
+Impus($x, True) >>> Amenable($x, True) ::: Each Impus is amenable.
+Impus($x, True) >>> Dumpus($x, True) ::: Each Impus is a Dumpus.
+Dumpus($x, True) >>> Metallic($x, False) ::: Every Dumpus is not metallic.
+Dumpus($x, True) >>> Numpus($x, True) ::: Dumpuses are Numpuses.
+Numpus($x, True) >>> Bitter($x, True) ::: Each Numpus is bitter.
+Numpus($x, True) >>> Jompus($x, True) ::: Each Numpus is a Jompus.
+Jompus($x, True) >>> Cold($x, True) ::: Every Jompus is cold.
+Jompus($x, True) >>> Yumpus($x, True) ::: Each Jompus is a Yumpus.
+
+Question in Logic Form:
+Metallic(Wren, False) ::: Wren is not metallic.
+
+Execution:
+Let's execute the plan step by step, using first-order logic inference rules and logical operators:
+
+Identify the Goal
+
+Goal: Establish the truth value of "Metallic(Wren, False)".
+Logical Framework: Determine whether Wren, as per the given predicates and facts, is not metallic.
+Utilize the Fact about Wren
+
+Fact: Tumpus(Wren, True).
+Inference Rule: Existential Instantiation.
+Logical Process: We instantiate the fact that Wren is a Tumpus. Tumpus(Wren, True).
+Apply Rules Involving Tumpus
+
+Rule: Tumpus($x, True) >>> Wumpus($x, True).
+Inference Rule: Modus Ponens.
+Logical Process: Since Tumpus(Wren, True), it follows that Wumpus(Wren, True).
+Wumpus to Rompus
+
+Rule: Wumpus($x, True) >>> Rompus($x, True).
+Inference Rule: Modus Ponens.
+Logical Process: Wumpus(Wren, True) implies Rompus(Wren, True).
+Apply Rules Involving Rompus
+
+Rule: Rompus($x, True) >>> Impus($x, True).
+Inference Rule: Modus Ponens.
+Logical Process: Since Rompus(Wren, True), it follows that Impus(Wren, True).
+Apply Rules Involving Impus
+
+Rule: Impus($x, True) >>> Dumpus($x, True).
+Inference Rule: Modus Ponens.
+Logical Process: From Impus(Wren, True), it follows that Dumpus(Wren, True).
+Apply Rules Involving Dumpus
+
+Rule: Dumpus($x, True) >>> Metallic($x, False).
+Inference Rule: Modus Ponens.
+Logical Process: Since Dumpus(Wren, True), it follows that Metallic(Wren, False).
+Conclude
+
+Conclusion: Through logical inferences using the rules, we have established that Wren, being a Dumpus, is not metallic. Therefore, the statement "Metallic(Wren, False)" is true.
+Final answer: {true}
+
+-----
+
+Context:
+[[CONTEXT]]
+
+-----
+
+Execution: Please clearly indicate whether the question is true or false using square bracket {true/false}!!! The answer will only be either true or false but NOT unknown.

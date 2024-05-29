@@ -1,0 +1,178 @@
+The task is to determine whether the value of the conclusion/question is true/false/unknown based on the premises.
+-----
+You must refer to the following first-order logic inference rules when making logical inference.
+The first-order-logic inference rules include but are not limited to:
+1. **Modus Ponens (Implication Elimination):**
+   - If P → Q (if P then Q) and P is true, then Q is true.
+
+2. **Modus Tollens (Denying the Consequent):**
+   - If P → Q and ¬Q (not Q) is true, then ¬P (not P) is true.
+
+3. **Universal Instantiation (Universal Specification):**
+   - From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.
+
+4. **Universal Generalization (Universal Introduction):**
+   - If P(c) is true for every instance c, infer ∀x P(x).
+
+5. **Existential Instantiation (Existential Specification):**
+   - From ∃x P(x) (there exists an x such that P(x) is true), infer P(c) for some specific instance c.
+
+6. **Existential Generalization (Existential Introduction):**
+   - If P(c) is true for some specific instance c, infer ∃x P(x).
+
+7. **Conjunction Introduction (And Introduction):**
+   - If P is true and Q is true, infer P ∧ Q (P and Q).
+
+8. **Conjunction Elimination (And Elimination):**
+   - From P ∧ Q, infer P and infer Q.
+
+9. **Disjunction Introduction (Or Introduction):**
+   - If P is true, infer P ∨ Q (P or Q). Similarly, if Q is true, infer P ∨ Q.
+
+10. **Disjunction Elimination (Or Elimination):**
+   - From P ∨ Q, and knowing ¬P, infer Q. Similarly, from P ∨ Q and knowing ¬Q, infer P.
+
+11. **Biconditional Introduction (If and Only If Introduction):**
+   - If P → Q and Q → P, infer P ↔ Q (P if and only if Q).
+
+12. **Biconditional Elimination (If and Only If Elimination):**
+   - From P ↔ Q, infer P → Q and Q → P.
+
+13. **Negation Introduction (Reductio ad Absurdum):**
+   - If assuming ¬P leads to a contradiction, infer P.
+
+14. **Negation Elimination:**
+   - If ¬¬P (not not P) is true, infer P.
+
+15. **Hypothetical Syllogism:**
+   - If P → Q and Q → R, then P → R.
+
+16. **Disjunctive Syllogism:**
+   - If P ∨ Q and ¬P, then Q. Similarly, if P ∨ Q and ¬Q, then P.
+
+17. **Transitive Inference:**
+- If A → B (A implies B) and B → C (B implies C), then A → C (A implies C).
+-----
+Please solve the question step by step and refer to the examples. During each step, please indicate what first-order logic inference rules you used. Besides, show the inference process by the logical operators including but not limited to: ⊕ (either or), ∨ (disjunction), ∧ (conjunction), → (implication), ∀ (universal), ∃ (existential), ¬ (negation), ↔ (equivalence). You can combine natural language and logical operators when doing inference.
+Please also highlight the final answer as "Final answer: {true/false/unknown}"
+-----
+Below is an example:
+
+Premises:
+1.NamedAfter(Cove(barutinCove), Settlement(barutin)) ∧ InBulgaria(Settlement(barutin))
+2.LocatedAt(Cove(barutinCove), Island(snowIsland))
+3.∀y(Island(y) → (y = snowIsland ∨ y = greenwichIsland ∨ y = deceptionIsland) → Includes(IslandsGroup(southShetlandIslands), y))
+4.PartOf(IslandsGroup(southShetlandIslands), Continent(antarctica))
+5. ∀x ∀y ∀z(LocatedIn(x, y) ∧ LocatedIn(y, z) → LocatedIn(x, z))
+
+Question: 
+∃x(Cove(x) ∧ LocatedIn(x, Continent(antarctica)) ∧ ∃y(NamedAfter(x, y) ∧ InBulgaria(y)))
+
+
+Execution:
+Alright, let's execute step by step, using first-order logic inference rules and logical operators.
+
+Step 1: Identify the Goal
+Our goal is to establish the truth of the statement ∃x(Cove(x) ∧ LocatedIn(x, Continent(antarctica)) ∧ ∃y(NamedAfter(x, y) ∧ InBulgaria(y))). This is an existential claim that there exists at least one cove that meets all these criteria.
+Step 2: Utilize Premise 1
+Premise: NamedAfter(Cove(barutinCove), Settlement(barutin)) ∧ InBulgaria(Settlement(barutin))
+Inference Rule: Conjunction (If P is true and Q is true, infer P ∧ Q (P and Q).)
+Logical Process: We have two conjoined statements here, both true. Therefore, Cove(barutinCove) is named after a Settlement(barutin), which is in Bulgaria.
+Step 3: Apply Premise 2
+Premise: LocatedAt(Cove(barutinCove), Island(snowIsland))
+Inference Rule: Existential Instantiation (From ∃x P(x) (there exists an x such that P(x) is true), infer P(c) for some specific instance c.)
+Logical Process: We instantiate Cove(barutinCove) and confirm it is located at Island(snowIsland).
+Step 4: Utilize Premise 3
+Premise: ∀y(Island(y) → (y = snowIsland ∨ y = greenwichIsland ∨ y = deceptionIsland) → Includes(IslandsGroup(southShetlandIslands), y))
+Inference Rule: Universal Instantiation (From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.) and Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: By substituting Island(snowIsland) for y, if snowIsland is either snowIsland, greenwichIsland, or deceptionIsland (which it is), it must be included in the South Shetland Islands.
+Step 5: Apply Premise 4
+Premise: PartOf(IslandsGroup(southShetlandIslands), Continent(antarctica))
+Inference Rule: Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: Since the South Shetland Islands are part of Antarctica, any specific island within this group, including Snow Island, is part of Antarctica.
+Step 6: Implement Premise 5
+Premise: ∀x ∀y ∀z(LocatedIn(x, y) ∧ LocatedIn(y, z) → LocatedIn(x, z))
+Inference Rule: Universal Instantiation (From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.) and Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: We apply this premise to Cove(barutinCove) (x), Island(snowIsland) (y), and Continent(antarctica) (z). Since Barutin Cove is on Snow Island, and Snow Island is part of Antarctica, by transitivity, Barutin Cove is located in Antarctica.
+Step 7: Combine the Steps
+Logical Process: Combining the above steps, we have established that Cove(barutinCove) is named after a settlement in Bulgaria, is located on Snow Island, and Snow Island is part of the South Shetland Islands, which are part of Antarctica. Therefore, all parts of the existential statement are satisfied for Cove(barutinCove).
+Step 8: Conclude
+Conclusion: Since we have found a specific instance (Cove(barutinCove)) that satisfies all parts of the existential statement in the question, the statement ∃x(Cove(x) ∧ LocatedIn(x, Continent(antarctica)) ∧ ∃y(NamedAfter(x, y) ∧ InBulgaria(y))) is True.
+Throughout the process, we used logical operators such as ∧ (conjunction), → (implication), and ∃ (existential), and inference rules like Modus Ponens, Universal Instantiation, and Existential Instantiation. This logical deduction confirms the truth of the question statement.
+
+Final answer: {true}
+-----
+Below is an example:
+
+Premises:
+1.∀x(CanTransport(x) → ¬Empty(x, multiple passengers))
+2.∀x(Airlines(x) → ∀y(CanTransport(x, y)))
+3.∀x(Planes(x) → Empty(x))
+4.∀x(Boeing707s(x) → Planes(x))
+5.¬Airlines(Greyhound) → ¬∃x(GreyhoundPlanes(x))
+
+Question:
+Greyhound(x) ∧ Boeing707s(x)
+
+Execution:
+Step 1: Identify the Goal
+Our goal is to determine the truth of the statement "Greyhound(x) ∧ Boeing707s(x)". This requires verifying if there is an entity x that satisfies both being a Greyhound and a Boeing 707.
+
+Step 2: Utilize Premise 4 (Boeing 707s to Planes)
+Premise: ∀x(Boeing707s(x) → Planes(x))
+Inference Rule: Universal Instantiation (From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.) and Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: If an entity x is a Boeing 707, then it is also a plane.
+
+Step 3: Apply Premise 3 (Planes to Empty)
+Premise: ∀x(Planes(x) → Empty(x))
+Inference Rule: Universal Instantiation (From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.) and Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: If an entity x is a plane, then it is empty.
+
+Step 4: Combine Premises 4 and 3
+Logical Process: By transitivity, if x is a Boeing 707, then x is empty (Boeing707s(x) → Planes(x) → Empty(x)).
+
+Step 5: Evaluate Greyhound and Transport Capability
+Premise: ∀x(Airlines(x) → ∀y(CanTransport(x, y)))
+Inference Rule: Universal Instantiation (From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.) and Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: If Greyhound is an airline, it should be able to transport entities.
+
+Step 6: Examine Contradiction with Empty Status
+Premise: ∀x(CanTransport(x) → ¬Empty(x, multiple passengers))
+Inference Rule: Universal Instantiation (From ∀x P(x) (for all x, P(x) is true), infer P(c) for a specific instance c.) and Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: There is a contradiction if Greyhound can transport (implying it's not empty) but is a Boeing 707 (and therefore empty).
+
+Step 7: Assess Greyhound's Aircraft Status
+Premise: ¬Airlines(Greyhound) → ¬∃x(GreyhoundPlanes(x))
+Inference Rule: Modus Ponens (If P → Q (if P then Q) and P is true, then Q is true.)
+Logical Process: If Greyhound is not an airline, it does not have planes.
+
+Step 8: Combine the Steps
+Logical Process: Integrating the above steps, there is a logical contradiction in Greyhound being a Boeing 707. This would imply Greyhound is empty, conflicting with its capability to transport.
+
+Step 9: Conclude
+Conclusion: The statement "Greyhound(x) ∧ Boeing707s(x)" is false due to the logical contradictions encountered in the premises and the analysis.
+
+Final answer: {false}
+
+-----
+Below are the one you need to solve:
+
+Context:
+[[CONTEXT]]
+
+
+-----
+
+Make sure you carefully and fully understand the below requirements before execution the problem:
+1.Please clearly indicate whether the question/conclusion statement is true, false or unknown using curly bracket {true/false/unknown}!!! The answer will only be either true, false or unknown.
+The definition of the three options are:
+True: A statement is "true" if it necessarily follows from the given premises using logical rules.
+False: A statement is "false" if it is contradicted by the premises or its negation is logically inferred from them.
+Unknown: A statement is "unknown" if there is insufficient information in the premises to determine its truth value conclusively.
+2. Make sure you must only use the premises to infer the conclusion. Do not use any information that is not exist or cannot be inferred from the premises.If some premise is semantically equal, such as "love the most" and "favorite", you can consider this as a valid assumption. You can make assumption to entity if it is very obvious but not logical relationship. For instance, an entity with an obvious human name can be inferred as a human.
+3. Make sure you abide the 16 provided first-order logic rules and formula when making logical inference. You need to clearly indicate what logic rules and formula you used.
+4. Please note that in first-order logic if there exists a conditional statement in the conclusion such as "If...", the if part will be considered as a premise. And if there is premise contradicts the if statement, you need to use the premise in the if statement as priority and neglect the contradicted one.
+5. Be careful with the parentheses. Make sure you following the rules such as Order of Operations (The order is usually: negation (¬), conjunction (and, ∧), disjunction (or, ∨), implication (→), and biconditional (↔). ), Nested Parentheses (The expression inside the innermost set of parentheses is evaluated first, then the next outer set, and so on.). 
+6. Make sure you not only access the premises in first-order logic, but also access its corresponding natural language format. The natural language format premises should be prioritized when there is inconsistent between natural language and first-order logic.
+7. When inferring new knowledge, please clear indicate which premises you used or the steps you refer to. For instance, if you use Premise 1 and a knowledge from Step 5, you should clearly indicate that "Combine Premise 1 and Step 5".
+8. You should also use natural language to explain the logical process in each step. Please also indicate the premises and steps you refer to when making the logical process.

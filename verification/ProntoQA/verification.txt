@@ -1,0 +1,125 @@
+The task is to verify whether the original execution correctly determine the value of the given conclusion based on the context.
+You should abide by the first-order-logic rules when checking original execution and the conclusion.
+-----
+When verifying the logical process and the final answer, make sure you fully consider the following aspects before verification:
+1. Whether the logical process abide by the first-order logic inference rules.
+2. Assumption and Consistency Verification. Please check whether the relevant facts or rules used in a logical step is indeed from the context or inferred from the previous steps. If you think it contains assumption in the logical steps, you need to clearly what assumption it is and verify whether the assumptions are from the context and whether it is already inferred from the previous steps. Please note that assumption that is not exist from the context or did not be infer from the previous step will be considered as invalid assumption.
+Please notes that if an assumption is semantically equivalent to context or information inferred from the context, it should be seen as a valid assumption. For example, "X sees X" can be interpreted as "X sees itself" since they are semantically equivalent.
+3. Whether the translation first-order logic for context and question are semantically consistent with the original natural language.
+4.Refinement of Logical Process: If the original execution violates any of the above steps, refine the logical process. Use the relevant premises and information correctly derived from previous steps to create a more accurate logical deduction.
+5.If applicable, please provide a detailed analysis of each step in the logical process and a refined answer at the end, using the format {true/false}. The answer should only be true or false but NOT unknown.
+6. Make sure the conclusion align with the information inferred from the logical steps.
+-----
+Below is an example:
+
+Original context:
+Wumpuses are large. Each wumpus is an impus. Each impus is not hot. Impuses are numpuses. Every numpus is earthy. Zumpuses are mean. Numpuses are vumpuses. Vumpuses are liquid. Vumpuses are dumpuses. Dumpuses are not mean. Dumpuses are tumpuses. Sam is a wumpus.
+Question: Is the following statement true or false? Sam is mean.
+
+Translated context:
+Predicates:\nWumpus($x, bool) ::: Is x a Wumpus?\nLarge($x, bool) ::: Is x large?\nImpus($x, bool) ::: Is x an Impus?\nHot($x, bool) ::: Is x hot?\nNumpus($x, bool) ::: Is x a Numpus?\nEarthy($x, bool) ::: Is x earthy?\nZumpus($x, bool) ::: Is x a Zumpus?\nMean($x, bool) ::: Is x mean?\nVumpus($x, bool) ::: Is x a Vumpus?\nLiquid($x, bool) ::: Is x liquid?\nDumpus($x, bool) ::: Is x a Dumpus?\nTumpus($x, bool) ::: Is x a Tumpus?\n\nFacts:\nWumpus(Sam, True) ::: Sam is a Wumpus.\n\nRules:\nWumpus($x, True) >>> Large($x, True) ::: Wumpuses are large.\nWumpus($x, True) >>> Impus($x, True) ::: Each wumpus is an impus.\nImpus($x, True) >>> Hot($x, False) ::: Each impus is not hot.\nImpus($x, True) >>> Numpus($x, True) ::: Impuses are numpuses.\nNumpus($x, True) >>> Earthy($x, True) ::: Every numpus is earthy.\nZumpus($x, True) >>> Mean($x, True) ::: Zumpuses are mean.\nNumpus($x, True) >>> Vumpus($x, True) ::: Numpuses are vumpuses.\nVumpus($x, True) >>> Liquid($x, True) ::: Vumpuses are liquid.\nVumpus($x, True) >>> Dumpus($x, True) ::: Vumpuses are dumpuses.\nDumpus($x, True) >>> Mean($x, False) ::: Dumpuses are not mean.\nDumpus($x, True) >>> Tumpus($x, True) ::: Dumpuses are tumpuses.\n\nQuery:\nMean(Sam, False) ::: Sam is not mean.
+
+Original execution:
+Let's execute the plan step by step, using first-order logic inference rules and logical operators:\n\nIdentify the Goal\n\nGoal: Establish the truth value of \"Mean(Sam, False)\".\nLogical Framework: Determine whether Sam, as per the given predicates and facts, is not mean.\nUtilize the Fact about Sam\n\nFact: Wumpus(Sam, True).\nInference Rule: Existential Instantiation.\nLogical Process: We instantiate the fact that Sam is a Wumpus. Wumpus(Sam, True).\nApply Rules Involving Wumpus\n\nRule: Wumpus($x, True) >>> Impus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Wumpus(Sam, True), it follows that Impus(Sam, True).\nApply Rules Involving Impus\n\nRule: Impus($x, True) >>> Numpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Impus(Sam, True), it follows that Numpus(Sam, True).\nApply Rules Involving Numpus\n\nRule: Numpus($x, True) >>> Vumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Numpus(Sam, True), it follows that Vumpus(Sam, True).\nApply Rules Involving Vumpus\n\nRule: Vumpus($x, True) >>> Dumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Vumpus(Sam, True), it follows that Dumpus(Sam, True).\nApply Rules Involving Dumpus\n\nRule: Dumpus($x, True) >>> Mean($x, False).\nInference Rule: Modus Ponens.\nLogical Process: Since Dumpus(Sam, True), it follows that Mean(Sam, False).\nConclude\n\nConclusion: Through logical inferences using the rules, we have established that Sam, being a Dumpus, is not mean. Therefore, the statement \"Mean(Sam, False)\" is true.\nFinal answer: {true}
+
+Verification:
+To verify the logical validity of the original execution, let's assess the translated context, the original context, and the logical process used:
+
+### Context Verification
+- Original Context: Wumpuses are large. Each wumpus is an impus. Each impus is not hot. Impuses are numpuses. Every numpus is earthy. Zumpuses are mean. Numpuses are vumpuses. Vumpuses are liquid. Vumpuses are dumpuses. Dumpuses are not mean. Dumpuses are tumpuses. Sam is a wumpus.
+- Translated Context: 
+  - Predicates and facts appear to accurately reflect the original context.
+  - The predicates Wumpus, Impus, Numpus, Zumpus, Vumpus, Dumpus, and their associated properties (Large, Hot, Earthy, Mean, Liquid, Tumpus) are correctly translated.
+  - The rules translating the relationships between these entities (e.g., Wumpus to Impus, Impus to Numpus, etc.) are also correctly captured.
+  - The statement "Sam is a wumpus" is accurately translated as "Wumpus(Sam, True)."
+
+### Query Verification
+- Original Question: Is the following statement true or false? Sam is mean.
+- Translated Query: Mean(Sam, False) ::: Sam is not mean.
+  - The translation of the query inverts the original question. The original asks if Sam is mean, whereas the translated query asks if Sam is not mean.
+
+### Logical Process Verification
+1. **Fact: Wumpus(Sam, True)** - This is a direct fact from the context, stating Sam is a Wumpus.
+
+2. **Rule: Wumpus($x, True) → Impus($x, True)** - Correct application of Modus Ponens. Since Sam is a Wumpus, Sam is also an Impus.
+
+3. **Rule: Impus($x, True) → Numpus($x, True)** - Correct application of Modus Ponens. Since Sam is an Impus, Sam is also a Numpus.
+
+4. **Rule: Numpus($x, True) → Vumpus($x, True)** - Correct application of Modus Ponens. Since Sam is a Numpus, Sam is also a Vumpus.
+
+5. **Rule: Vumpus($x, True) → Dumpus($x, True)** - Correct application of Modus Ponens. Since Sam is a Vumpus, Sam is also a Dumpus.
+
+6. **Rule: Dumpus($x, True) → Mean($x, False)** - Correct application of Modus Ponens. Since Sam is a Dumpus, Sam is not mean.
+
+### Conclusion
+The original execution correctly follows the logical steps and adheres to the first-order logic inference rules. The fact that Sam is a Wumpus leads to the conclusion that Sam is not mean through a series of logical steps based on the given rules.
+
+However, the translated query incorrectly asks if Sam is not mean, whereas the original question asks if Sam is mean. Despite this, the logical process concludes that Sam is not mean, which aligns with the original question's intent to find out if Sam is mean (the answer being false).
+
+Final answer: {false}
+-----
+Below is an example:
+
+Original context:
+Rompuses are small. Each rompus is a zumpus. Every zumpus is not bright. Zumpuses are vumpuses. Every vumpus is cold. Vumpuses are impuses. Impuses are not opaque. Every impus is a jompus. Jompuses are earthy. Each jompus is a yumpus. Yumpuses are spicy. Yumpuses are numpuses. Numpuses are liquid. Numpuses are dumpuses. Each dumpus is not angry. Every dumpus is a tumpus. Every wumpus is not earthy. Max is a rompus.
+Question: Is the following statement true or false? Max is not earthy.
+
+Translated context:
+Predicates:\nRompus($x, bool) ::: Is x a Rompus?\nSmall($x, bool) ::: Is x small?\nZumpus($x, bool) ::: Is x a Zumpus?\nBright($x, bool) ::: Is x bright?\nVumpus($x, bool) ::: Is x a Vumpus?\nCold($x, bool) ::: Is x cold?\nImpus($x, bool) ::: Is x an Impus?\nOpaque($x, bool) ::: Is x opaque?\nJompus($x, bool) ::: Is x a Jompus?\nEarthy($x, bool) ::: Is x earthy?\nYumpus($x, bool) ::: Is x a Yumpus?\nSpicy($x, bool) ::: Is x spicy?\nNumpus($x, bool) ::: Is x a Numpus?\nLiquid($x, bool) ::: Is x liquid?\nDumpus($x, bool) ::: Is x a Dumpus?\nAngry($x, bool) ::: Is x angry?\nTumpus($x, bool) ::: Is x a Tumpus?\nWumpus($x, bool) ::: Is x a Wumpus?\n\nFacts:\nRompus(Max, True) ::: Max is a Rompus.\n\nRules:\nRompus($x, True) >>> Small($x, True) ::: Rompuses are small.\nRompus($x, True) >>> Zumpus($x, True) ::: Each rompus is a zumpus.\nZumpus($x, True) >>> Bright($x, False) ::: Every zumpus is not bright.\nZumpus($x, True) >>> Vumpus($x, True) ::: Zumpuses are vumpuses.\nVumpus($x, True) >>> Cold($x, True) ::: Every vumpus is cold.\nVumpus($x, True) >>> Impus($x, True) ::: Vumpuses are impuses.\nImpus($x, True) >>> Opaque($x, False) ::: Impuses are not opaque.\nImpus($x, True) >>> Jompus($x, True) ::: Every impus is a jompus.\nJompus($x, True) >>> Earthy($x, True) ::: Jompuses are earthy.\nJompus($x, True) >>> Yumpus($x, True) ::: Each jompus is a yumpus.\nYumpus($x, True) >>> Spicy($x, True) ::: Yumpuses are spicy.\nYumpus($x, True) >>> Numpus($x, True) ::: Yumpuses are numpuses.\nNumpus($x, True) >>> Liquid($x, True) ::: Numpuses are liquid.\nNumpus($x, True) >>> Dumpus($x, True) ::: Numpuses are dumpuses.\nDumpus($x, True) >>> Angry($x, False) ::: Each dumpus is not angry.\nDumpus($x, True) >>> Tumpus($x, True) ::: Every dumpus is a tumpus.\nWumpus($x, True) >>> Earthy($x, False) ::: Every wumpus is not earthy.\n\nQuery:\nEarthy(Max, False) ::: Max is not earthy.
+
+Original execution:
+Let's execute the plan step by step, using first-order logic inference rules and logical operators:\n\nIdentify the Goal\n\nGoal: Establish the truth value of \"Earthy(Max, False)\".\nLogical Framework: Determine whether Max, as per the given predicates and facts, is not earthy.\nUtilize the Fact about Max\n\nFact: Rompus(Max, True).\nInference Rule: Existential Instantiation.\nLogical Process: We instantiate the fact that Max is a Rompus. Rompus(Max, True).\nApply Rules Involving Rompus\n\nRule: Rompus($x, True) >>> Zumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Rompus(Max, True), it follows that Zumpus(Max, True).\nApply Rules Involving Zumpus\n\nRule: Zumpus($x, True) >>> Vumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Zumpus(Max, True), it follows that Vumpus(Max, True).\nApply Rules Involving Vumpus\n\nRule: Vumpus($x, True) >>> Impus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Vumpus(Max, True), it follows that Impus(Max, True).\nApply Rules Involving Impus\n\nRule: Impus($x, True) >>> Jompus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Impus(Max, True), it follows that Jompus(Max, True).\nApply Rules Involving Jompus\n\nRule: Jompus($x, True) >>> Yumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Jompus(Max, True), it follows that Yumpus(Max, True).\nApply Rules Involving Yumpus\n\nRule: Yumpus($x, True) >>> Numpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Yumpus(Max, True), it follows that Numpus(Max, True).\nApply Rules Involving Numpus\n\nRule: Numpus($x, True) >>> Dumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Numpus(Max, True), it follows that Dumpus(Max, True).\nApply Rules Involving Dumpus\n\nRule: Dumpus($x, True) >>> Tumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Dumpus(Max, True), it follows that Tumpus(Max, True).\nApply Rules Involving Tumpus\n\nRule: Tumpus($x, True) >>> Wumpus($x, True).\nInference Rule: Modus Ponens.\nLogical Process: Since Tumpus(Max, True), it follows that Wumpus(Max, True).\nApply Rules Involving Wumpus\n\nRule: Wumpus($x, True) >>> Earthy($x, False).\nInference Rule: Modus Ponens.\nLogical Process: Since Wumpus(Max, True), it follows that Earthy(Max, False).\nConclude\n\nConclusion: Through logical inferences using the rules, we have established that Max, being a Wumpus, is not earthy. Therefore, the statement \"Earthy(Max, False)\" is true.\nFinal answer: {true}
+
+Verification:
+To verify the logical validity of the original execution, let's assess the translated context, the original context, and the logical process used:
+
+### Context Verification
+- Original Context: Rompuses are small. Each rompus is a zumpus. Every zumpus is not bright. Zumpuses are vumpuses. Every vumpus is cold. Vumpuses are impuses. Impuses are not opaque. Every impus is a jompus. Jompuses are earthy. Each jompus is a yumpus. Yumpuses are spicy. Yumpuses are numpuses. Numpuses are liquid. Numpuses are dumpuses. Each dumpus is not angry. Every dumpus is a tumpus. Every wumpus is not earthy. Max is a rompus.
+- Translated Context: 
+  - Predicates and facts appear to accurately reflect the original context.
+  - The translation accurately captures the characteristics and relationships between Rompus, Zumpus, Vumpus, Impus, Jompus, Yumpus, Numpus, Dumpus, Tumpus, and Wumpus entities.
+  - The statement "Max is a rompus" is accurately translated as "Rompus(Max, True)."
+
+### Query Verification
+- Original Question: Is the following statement true or false? Max is not earthy.
+- Translated Query: Earthy(Max, False) ::: Max is not earthy.
+  - The translation of the query accurately reflects the original question.
+
+### Logical Process Verification
+1. **Fact: Rompus(Max, True)** - This is a direct fact from the context, stating Max is a Rompus.
+
+2. **Rule: Rompus($x, True) → Zumpus($x, True)** - Correct application of Modus Ponens. Since Max is a Rompus, Max is also a Zumpus.
+
+3. **Rule: Zumpus($x, True) → Vumpus($x, True)** - Correct application of Modus Ponens. Since Max is a Zumpus, Max is also a Vumpus.
+
+4. **Rule: Vumpus($x, True) → Impus($x, True)** - Correct application of Modus Ponens. Since Max is a Vumpus, Max is also an Impus.
+
+5. **Rule: Impus($x, True) → Jompus($x, True)** - Correct application of Modus Ponens. Since Max is an Impus, Max is also a Jompus.
+
+6. **Rule: Jompus($x, True) → Earthy($x, True)** - This rule contradicts the goal. Since Max is a Jompus, Max is earthy, not non-earthy.
+
+7. **Further Steps** - The logical process in the original execution continues by applying further rules involving Yumpus, Numpus, Dumpus, Tumpus, and Wumpus. However, these steps are unnecessary and irrelevant because the rule "Jompus($x, True) → Earthy($x, True)" already contradicts the goal. Max being a Jompus implies Max is earthy, which contradicts the statement "Earthy(Max, False)."
+
+### Conclusion
+The original execution incorrectly concludes that Max is not earthy. The correct logical deduction based on the rules and facts should conclude that Max, being a Jompus, is earthy. Therefore, the statement "Earthy(Max, False)" is false.
+
+Final answer: {false}
+-----
+Below is the one you need to verify:
+
+Original Context:
+[[ORIGIN]]
+
+Translated Context:
+[[CONTEXT]]
+
+Original Execution:
+[[EXECUTION]]
+
+-----
+Please carefully read and understand the following requirements before verification:
+Please note that the answer will only be true or false. If there is no sufficient information to conclude true, you can conclude it as false. If it is unknown you can also conclude false.
+Please indicate the revised answer at the end using curly bracket such as {true/false}. The answer will be one of the true or false in the curly bracket.
+Please make sure that the Query you conclude is consistent with the question in original context and in Translated Context. For instance, if the query to conclude is "Small(Stella, False) ::: Is the statement", 
+-----
+Verification:

@@ -1,0 +1,191 @@
+Task Description: You are given a problem description. The task is to parse the problem as a constraint satisfaction problem, defining the domain, variables, and constraints.
+-----
+Below is an example:
+
+Problem:
+A professor must determine the order in which five of her students—Fernando, Ginny, Hakim, Juanita, and Kevin—will perform in an upcoming piano recital. Each student performs one piece, and no two performances overlap. The following constraints apply: Ginny must perform earlier than Fernando. Kevin must perform earlier than Hakim and Juanita. Hakim must perform either immediately before or immediately after Fernando.
+
+Question:
+Which one of the following could be the order, from first to last, in which the students perform?
+
+Options:
+A) Ginny, Fernando, Hakim, Kevin, Juanita
+B) Ginny, Juanita, Kevin, Hakim, Fernando
+C) Ginny, Kevin, Hakim, Juanita, Fernando
+D) Kevin, Ginny, Juanita, Fernando, Hakim
+E) Kevin, Juanita, Fernando, Hakim, Ginny
+
+Translation:
+### Domain
+
+- Positions: 1 (first performer) to 5 (last performer)
+
+### Variables
+
+- Fernando_position [IN] [1, 2, 3, 4, 5]
+- Ginny_position [IN] [1, 2, 3, 4, 5]
+- Hakim_position [IN] [1, 2, 3, 4, 5]
+- Juanita_position [IN] [1, 2, 3, 4, 5]
+- Kevin_position [IN] [1, 2, 3, 4, 5]
+
+### Constraints
+
+1. **Ginny Before Fernando**: 
+   - Ginny_position < Fernando_position
+   
+2. **Kevin Before Hakim and Juanita**: 
+   - Kevin_position < Hakim_position
+   - Kevin_position < Juanita_position
+   
+3. **Hakim Either Immediately Before or After Fernando**:
+   - |Hakim_position - Fernando_position| = 1
+
+4. **Unique Performance Slots**:
+   - Each student (Fernando, Ginny, Hakim, Juanita, and Kevin) is assigned a unique position [1, 2, 3, 4, 5] for their performance. This ensures that no two performances overlap in timing, as each position corresponds to a distinct, non-overlapping time slot during the recital.
+
+### Queries for Options
+Which one of the following could be the order, from first to last, in which the students perform?
+
+- **A) Ginny, Fernando, Hakim, Kevin, Juanita**
+  - Ginny_position = 1, Fernando_position = 2, Hakim_position = 3, Kevin_position = 4, Juanita_position = 5
+  
+- **B) Ginny, Juanita, Kevin, Hakim, Fernando**
+  - Ginny_position = 1, Juanita_position = 2, Kevin_position = 3, Hakim_position = 4, Fernando_position = 5
+  
+- **C) Ginny, Kevin, Hakim, Juanita, Fernando**
+  - Ginny_position = 1, Kevin_position = 2, Hakim_position = 3, Juanita_position = 4, Fernando_position = 5
+  
+- **D) Kevin, Ginny, Juanita, Fernando, Hakim**
+  - Kevin_position = 1, Ginny_position = 2, Juanita_position = 3, Fernando_position = 4, Hakim_position = 5
+  
+- **E) Kevin, Juanita, Fernando, Hakim, Ginny**
+  - Kevin_position = 1, Juanita_position = 2, Fernando_position = 3, Hakim_position = 4, Ginny_position = 5
+
+-----
+Below is an example:
+
+Problem:
+A street entertainer has six boxes stacked one on top of the other and numbered consecutively 1 through 6, from the lowest box up to the highest. Each box contains a single ball, and each ball is one of three colors—green, red, or white. Onlookers are to guess the color of each ball in each box, given that the following conditions hold: There are more red balls than white balls. There is a box containing a green ball that is lower in the stack than any box that contains a red ball. There is a white ball in a box that is immediately below a box that contains a green ball.
+
+Question:
+Which one of the following must be true?
+
+Options:
+A) There is a green ball in a box that is lower than box 4.
+B) There is a green ball in a box that is higher than box 4.
+C) There is a red ball in a box that is lower than box 4.
+D) There is a red ball in a box that is higher than box 4.
+E) There is a white ball in a box that is lower than box 4.
+
+Translation:
+### Domain
+
+1: lowest box
+6: highest box
+
+### Variables
+
+- box1_color [IN] [green, red, white]
+- box2_color [IN] [green, red, white]
+- box3_color [IN] [green, red, white]
+- box4_color [IN] [green, red, white]
+- box5_color [IN] [green, red, white]
+- box6_color [IN] [green, red, white]
+
+### Constraints
+
+1. **More Red than White Balls**: 
+   - Count([box1_color, box2_color, box3_color, box4_color, box5_color, box6_color], color == red) > Count([box1_color, box2_color, box3_color, box4_color, box5_color, box6_color], color == white)
+   
+2. **Green Below All Red**:
+   - For any box `b` containing a green ball, there must not be any red ball in a box with a lower number than `b`.
+   
+3. **White Below Green**:
+   - Exists a box `b` such that `contains(b) == white` and `contains(b-1) == green`
+
+4. **Single Ball Per Box**:
+   - Each box (Box1 through Box6) contains exactly one ball, which can be either green, red, or white. This ensures no overlap in ball color assignments per box, adhering to the problem's rule that each box contains a single ball, thereby preventing any box from containing more than one ball or being empty.
+
+### Queries for Options
+Which one of the following must be true?
+
+- **A) There is a green ball in a box that is lower than box 4.**
+  - Query: Exists([b:boxes], b < 4 and contains(b) == green)
+  
+- **B) There is a green ball in a box that is higher than box 4.**
+  - Query: Exists([b:boxes], b > 4 and contains(b) == green)
+  
+- **C) There is a red ball in a box that is lower than box 4.**
+  - Query: Exists([b:boxes], b < 4 and contains(b) == red)
+  
+- **D) There is a red ball in a box that is higher than box 4.**
+  - Query: Exists([b:boxes], b > 4 and contains(b) == red)
+  
+- **E) There is a white ball in a box that is lower than box 4.**
+  - Query: Exists([b:boxes], b < 4 and contains(b) == white)
+
+-----
+Below is an example:
+
+Problem:
+A professor must determine the order in which five of her students—Fernando, Ginny, Hakim, Juanita, and Kevin—will perform in an upcoming piano recital. Each student performs one piece, and no two performances overlap. The following constraints apply: Ginny must perform earlier than Fernando. Kevin must perform earlier than Hakim and Juanita. Hakim must perform either immediately before or immediately after Fernando.
+Question:
+Which one of the following CANNOT be true?
+Options:
+A) Fernando performs immediately before Juanita.
+B) Ginny performs immediately before Hakim.
+C) Hakim performs immediately before Ginny.
+D) Juanita performs immediately before Ginny.
+E) Kevin performs immediately before Hakim.
+
+Translation:
+### Domain
+
+- Positions: 1 (first performer) to 5 (last performer)
+
+### Variables
+
+- Fernando_position [IN] [1, 2, 3, 4, 5]
+- Ginny_position [IN] [1, 2, 3, 4, 5]
+- Hakim_position [IN] [1, 2, 3, 4, 5]
+- Juanita_position [IN] [1, 2, 3, 4, 5]
+- Kevin_position [IN] [1, 2, 3, 4, 5]
+
+### Constraints
+
+1. **Ginny Before Fernando**: 
+   - Ginny_position < Fernando_position
+   
+2. **Kevin Before Hakim and Juanita**: 
+   - Kevin_position < Hakim_position
+   - Kevin_position < Juanita_position
+   
+3. **Hakim Either Immediately Before or After Fernando**:
+   - |Hakim_position - Fernando_position| = 1
+
+4. **Unique Performance Slots**:
+   - Each student (Fernando, Ginny, Hakim, Juanita, and Kevin) is assigned a unique position [1, 2, 3, 4, 5] for their performance. This ensures that no two performances overlap in timing, as each position corresponds to a distinct, non-overlapping time slot during the recital.
+
+### Queries for Options (Which one of the following CANNOT be true?)
+A) Fernando performs immediately before Juanita.
+Correct Query: Fernando_position = Juanita_position - 1
+B) Ginny performs immediately before Hakim.
+Correct Query: Ginny_position = Hakim_position - 1
+C) Hakim performs immediately before Ginny.
+Correct Query: Hakim_position = Ginny_position - 1
+D) Juanita performs immediately before Ginny.
+Correct Query: Juanita_position = Ginny_position - 1
+E) Kevin performs immediately before Hakim.
+Correct Query: Kevin_position = Hakim_position - 1
+
+-----
+Below is the one you need to translate:
+Problem:
+[[CONTEXT]]
+Question:
+[[QUESTION]]
+Options:
+[[CHOICES]]
+###
+Make sure you capture all the information from the context in the translation.
+Make sure you follow the instruction and example to translate the information.

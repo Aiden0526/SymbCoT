@@ -1,0 +1,153 @@
+aiohttp==3.9.5
+aiosignal==1.3.1
+alabaster==0.7.13
+annotated-types==0.5.0
+async-timeout==4.0.3
+attrs==23.1.0
+autopep8==2.0.4
+Babel==2.12.1
+backoff==2.2.1
+bibtexparser==1.4.0
+blinker==1.6.2
+blis==0.7.10
+Brotli @ file:///croot/brotli-split_1714483155106/work
+cachetools==5.3.2
+catalogue==2.0.9
+certifi==2023.11.17
+chardet @ file:///home/conda/feedstock_root/build_artifacts/chardet_1695468599471/work
+charset-normalizer==3.2.0
+cleantext==1.1.4
+click==8.1.7
+cmake==3.27.4.1
+coloredlogs==15.0.1
+colorlog==6.7.0
+confection==0.1.3
+contourpy==1.1.0
+cycler==0.11.0
+cymem==2.0.7
+Cython==3.0.10
+dglgo==0.0.2
+dill==0.3.7
+docutils==0.20.1
+emoji==2.8.0
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.6.0/en_core_web_sm-3.6.0-py3-none-any.whl#sha256=83276fc78a70045627144786b52e1f2728ad5e29e5e43916ec37ea9c26a11212
+faiss-cpu==1.8.0
+faiss-gpu==1.7.2
+filelock==3.12.3
+Flask==2.3.3
+flatbuffers==24.3.25
+fonttools==4.42.1
+frozenlist==1.4.0
+fsspec==2023.9.0
+func-timeout==4.3.5
+gmpy2 @ file:///tmp/build/80754af9/gmpy2_1645438755360/work
+huggingface-hub==0.16.4
+humanfriendly==10.0
+idna==3.4
+imagesize==1.4.1
+importlib-metadata==6.8.0
+importlib-resources==6.0.1
+isort==5.12.0
+itsdangerous==2.1.2
+Jinja2==3.1.2
+joblib==1.3.2
+jsonline==0.2.1
+jsonlines==4.0.0
+kiwisolver==1.4.5
+langcodes==3.3.0
+lemminflect==0.2.3
+Levenshtein==0.21.1
+lightgbm==4.3.0
+line-profiler==4.1.1
+lit==16.0.6
+littleutils==0.2.2
+MarkupSafe @ file:///croot/markupsafe_1704205993651/work
+matplotlib==3.7.2
+mkl-fft @ file:///croot/mkl_fft_1695058164594/work
+mkl-random @ file:///croot/mkl_random_1695059800811/work
+mkl-service==2.4.0
+mpmath @ file:///croot/mpmath_1690848262763/work
+multidict==6.0.4
+murmurhash==1.0.9
+networkx @ file:///croot/networkx_1690561992265/work
+nltk==3.8.1
+nmslib==2.1.1
+numpy==1.25.2
+numpydoc==1.5.0
+ogb==1.3.6
+onnxruntime==1.17.3
+openai==0.27.9
+outdated==0.2.2
+packaging==23.1
+pandas==2.1.0
+pathy==0.10.2
+Pillow==10.0.0
+ply==3.11
+preshed==3.0.8
+protobuf==4.24.3
+psutil==5.9.5
+pybind11==2.6.1
+pycodestyle==2.11.0
+pydantic==2.3.0
+pydantic_core==2.6.3
+Pygments==2.16.1
+pyjnius==1.6.1
+pylev==1.4.0
+pyparsing==3.0.9
+pyserini==0.22.1
+PySocks @ file:///tmp/build/80754af9/pysocks_1605305812635/work
+pyswip==0.2.10
+python-constraint==1.4.0
+python-dateutil==2.8.2
+pytz==2023.3
+PyYAML @ file:///croot/pyyaml_1698096049011/work
+rapidfuzz==3.3.0
+rdkit-pypi==2022.9.5
+regex==2023.8.8
+requests @ file:///croot/requests_1707355572290/work
+retrying==1.3.4
+ruamel.yaml==0.17.32
+ruamel.yaml.clib==0.2.7
+safetensors==0.3.3
+scikit-learn==1.3.0
+scipy==1.11.2
+scitools-pyke==1.1.1
+sentencepiece==0.2.0
+six==1.16.0
+smart-open==6.4.0
+snowballstemmer==2.2.0
+spacy==3.6.1
+spacy-legacy==3.0.12
+spacy-loggers==1.0.4
+Sphinx==7.2.5
+sphinxcontrib-applehelp==1.0.7
+sphinxcontrib-devhelp==1.0.5
+sphinxcontrib-htmlhelp==2.0.4
+sphinxcontrib-jsmath==1.0.1
+sphinxcontrib-qthelp==1.0.6
+sphinxcontrib-serializinghtml==1.1.9
+srsly==2.4.7
+stanza==1.5.1
+sympy @ file:///croot/sympy_1701397643339/work
+termcolor==2.4.0
+thinc==8.1.12
+threadpoolctl==3.2.0
+timeout-decorator==0.5.0
+tokenizers==0.13.3
+tomli==2.0.1
+torch==2.3.0
+torchaudio==2.3.0
+torchvision==0.18.0
+tqdm==4.66.1
+transformers==4.33.1
+triton==2.0.0
+typer==0.9.0
+typing_extensions @ file:///croot/typing_extensions_1715268824938/work
+tzdata==2023.3
+urllib3==2.0.4
+wasabi==1.1.2
+Werkzeug==2.3.7
+Wikipedia-API==0.5.4
+yarl==1.9.2
+z3-solver==4.12.2.0
+zipp==3.16.2
