@@ -17,7 +17,7 @@ Via thorough evaluations on 5 standard datasets with both First-Order Logic and 
 
 **Dataset**
 -----
-We test our framework on 5 differents datasets using 2 symbolic formats.
+We test our framework on 5 different datasets using 2 symbolic formats.
 
 First-order Logic: [ProntoQA](https://github.com/asaparov/prontoqa), [ProofWriter](https://allenai.org/data/proofwriter), [FOLIO](https://github.com/Yale-LILY/FOLIO)
 
