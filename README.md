@@ -2,7 +2,7 @@
 
 Codes and Data for ACL 2024 Paper ["Faithful Logical Reasoning via Symbolic Chain-of-Thought"](https://arxiv.org/abs/2405.18357#:~:text=While%20the%20recent%20Chain%2Dof,expressions%20and%20rigid%20deducing%20rules.)
 
-Authors: **Jundong Xu**<sup>1</sup>, **Hao Fei**<sup>1</sup><sup>*</sup> (Corresponding author), **Liangming Pan**<sup>2</sup>, **Qian Liu**<sup>3</sup>, **Mong-Li Lee**<sup>1</sup>, **Wynne Hsu**<sup>1</sup>
+Authors: [**Jundong Xu**](https://aiden0526.github.io/JundongXu/)<sup>1</sup>, [**Hao Fei**](http://haofei.vip/)<sup>1</sup><sup>*</sup> (Corresponding author), [**Liangming Pan**](http://www.liangmingpan.com/)<sup>2</sup>, [**Qian Liu**](https://profiles.auckland.ac.nz/liu-qian)<sup>3</sup>, [**Mong-Li Lee**](https://www.comp.nus.edu.sg/cs/people/leeml/)<sup>1</sup>, [**Wynne Hsu**](https://www.comp.nus.edu.sg/cs/people/whsu/)<sup>1</sup>
 
 <sup>1</sup> National University of Singapore, Singapore, <sup>2</sup> University of California, Santa Barbara, USA, <sup>3</sup> University of Auckland, New Zealand
 
