@@ -1,4 +1,4 @@
-Task Description: You are given a problem description. The task is to parse the problem as a constraint satisfaction problem, defining the domain, variables, and contraints.
+Task Description: You are given a problem description. The task is to parse the problem as a constraint satisfaction problem, defining the domain, variables, and constraints.
 ------
 Below is an example:
 Problem:
@@ -69,6 +69,6 @@ Options:
 [[CHOICES]]
 ###
 -----
-Please pay attention to the domain, and make sure the value for each variable is consistent with the meaning of domain and the natural langauge. 
-For instance, if the Domain: 1 (cheapest) to 7 (most expensive), and a constraint says X is the second-cheapest, then the value of X should be 2 but NOT 6 because 6 means the second-most expensive which violates the meaning natural language. In this case, the smaller value infer the cheaper the thing is. So when you do comparison to check whether a constraint is satisfied or not, make sure you correctly interpret the direction of being cheaper is smaller value but NOT higher value. In this case, if a constraint says X is cheaper than Y. If X is 3 and Y is 2, this constraint is violated becuase the domain indicates that smaller value means cheaper price and 3 being larger than 2 means X is more expensive than Y, which violates the constraint.
+Please pay attention to the domain, and make sure the value for each variable is consistent with the meaning of domain and the natural language. 
+For instance, if the Domain: 1 (cheapest) to 7 (most expensive), and a constraint says X is the second-cheapest, then the value of X should be 2 but NOT 6 because 6 means the second-most expensive which violates the meaning natural language. In this case, the smaller value infers the cheaper the thing is. So when you do comparison to check whether a constraint is satisfied or not, make sure you correctly interpret the direction of being cheaper is smaller value but NOT higher value. In this case, if a constraint says X is cheaper than Y. If X is 3 and Y is 2, this constraint is violated because the domain indicates that smaller value means cheaper price and 3 being larger than 2 means X is more expensive than Y, which violates the constraint.
 Please pay attention to the meaning of the domain, and make sure you interpret the direction of the value based on the domain correctly to particular cases.
