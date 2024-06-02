@@ -1,4 +1,4 @@
-Task Description: You are given a problem description. The task is to parse the problem as a constraint satisfaction problem, defining the domain, variables, and contraints.
+Task Description: You are given a problem description. The task is to parse the problem as a constraint satisfaction problem, defining the domain, variables, and constraints.
 ------
 Below is an example:
 Problem:
