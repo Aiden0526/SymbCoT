@@ -338,6 +338,9 @@ Final answer: {E}
 -----
 Below is the one you need to solve:
 
+Plan:
+[[PLAN]]
+
 Context:
 [[CONTEXT]]
 

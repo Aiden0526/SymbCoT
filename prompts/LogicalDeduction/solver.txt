@@ -173,6 +173,9 @@ Let's solve the given constraint optimization problem using the provided workflo
 -----
 Below is the one you need to solve:
 
+Plan:
+[[PLAN]]
+
 Context:
 [[CONTEXT]]
 

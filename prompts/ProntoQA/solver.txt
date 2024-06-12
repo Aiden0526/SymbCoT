@@ -184,6 +184,9 @@ Final answer: {true}
 
 -----
 
+Plan:
+[[PLAN]]
+
 Context:
 [[CONTEXT]]
 

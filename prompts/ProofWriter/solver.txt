@@ -205,11 +205,11 @@ Final answer: {true}
 -----
 Below are the premises and questions you need to solve:
 -----
+Plan:
+[[PLAN]]
 
 Context:
 [[CONTEXT]]
-
-
 -----
 
 Execution requirements: 

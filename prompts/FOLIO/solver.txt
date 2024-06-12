@@ -157,6 +157,9 @@ Final answer: {false}
 -----
 Below are the one you need to solve:
 
+Plan:
+[[PLAN]]
+
 Context:
 [[CONTEXT]]
 
