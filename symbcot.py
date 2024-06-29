@@ -50,7 +50,7 @@ class GPT3_Reasoning_Graph_Baseline:
         full_prompt = in_context_examples_trans
         context = record['context']
         question = record['question'].strip()
-        full_prompt = full_prompt.replace('[[PROBLEM]]', context)
+        full_prompt = full_prompt.replace('[[CONTEXT]]', context)
         full_prompt = full_prompt.replace('[[QUESTION]]', question)
         return full_prompt
 
