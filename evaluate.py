@@ -12,7 +12,7 @@ def evaluate_performance(data, dataset_name):
 
     for i, record in enumerate(data):
         total_records += 1
-        predicted_answer = record.get('predicted_answer', '').strip().lower()
+        predicted_answer = record.get('predicted_choice', '').strip().lower()
         actual_answer = record.get('answer', '').strip().lower()
         
         if dataset_name in ['ProntoQA', 'ProofWriter', 'FOLIO']:
